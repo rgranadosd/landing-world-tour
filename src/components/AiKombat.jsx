@@ -9,9 +9,13 @@ export default function AiKombat() {
   const [headerRef, headerVis] = useScrollReveal();
   const [bookRef, bookVis] = useScrollReveal(0.15);
   const [pRef, pStyle] = useParallax(0.06, 'up');
+  const base = import.meta.env.BASE_URL;
 
   return (
     <section id="aikombat" className="kombat">
+      {/* Ambient light rays */}
+      <div className="kombat__rays" aria-hidden="true" />
+
       {/* Decorative grid lines */}
       <div className="kombat__gridlines" aria-hidden="true">
         <span /><span /><span /><span />
@@ -34,22 +38,25 @@ export default function AiKombat() {
           ref={bookRef}
           className={`kombat__stage ${bookVis ? 'kombat__stage--vis' : ''}`}
         >
-          {/* Cover */}
+          {/* Cover Image */}
           <div className="kombat__cover-wrap">
+            {/* Layered glows */}
             <div className="kombat__cover-glow" aria-hidden="true" />
-            <div className="book-cover">
-              <div className="book-cover__spine" aria-hidden="true" />
-              <div className="book-cover__front">
-                <div className="book-cover__top">{aiKombat.book.series}</div>
-                <div className="book-cover__mid">
-                  <h3 className="book-cover__title">{aiKombat.book.title}</h3>
-                  <p className="book-cover__sub">{aiKombat.book.subtitle}</p>
-                </div>
-                <div className="book-cover__bottom">
-                  <p className="book-cover__authors">{aiKombat.book.authors}</p>
-                </div>
-              </div>
+            <div className="kombat__cover-glow kombat__cover-glow--warm" aria-hidden="true" />
+
+            {/* Floating particles */}
+            <div className="kombat__particles" aria-hidden="true">
+              <span /><span /><span /><span /><span /><span /><span /><span />
             </div>
+
+            <img
+              src={`${base}libro.png`}
+              alt={aiKombat.sectionTitle}
+              className="kombat__cover-img"
+              loading="lazy"
+              width="600"
+              height="600"
+            />
           </div>
 
           {/* Content */}

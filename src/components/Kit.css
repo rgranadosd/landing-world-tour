@@ -69,6 +69,8 @@
 
 .kit__photo-wrap {
   position: relative;
+  width: 100%;
+  max-width: 480px;
   border-radius: 16px;
   overflow: hidden;
   background: #fff;
@@ -84,12 +86,15 @@
     box-shadow 0.55s ease;
 }
 
-/* Subtle dark tint to soften white contrast */
+/* Subtle dark tint to soften white contrast — covers 100% */
 .kit__photo-wrap::before {
   content: '';
   position: absolute;
-  inset: 0;
-  z-index: 3;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 2;
   background: rgba(0, 0, 0, 0.18);
   pointer-events: none;
 }
@@ -105,27 +110,6 @@
   opacity: 1;
   transform: translateY(0);
 }
-
-/* corner marks */
-.kit__corner {
-  position: absolute;
-  width: 24px;
-  height: 24px;
-  pointer-events: none;
-  z-index: 2;
-}
-.kit__corner::before,
-.kit__corner::after {
-  content: '';
-  position: absolute;
-  background: #f97316;
-}
-.kit__corner--tl { top: -8px; left: -8px; }
-.kit__corner--tl::before { top: 0; left: 0; width: 24px; height: 2px; }
-.kit__corner--tl::after  { top: 0; left: 0; width: 2px; height: 24px; }
-.kit__corner--br { bottom: -8px; right: -8px; }
-.kit__corner--br::before { bottom: 0; right: 0; width: 24px; height: 2px; }
-.kit__corner--br::after  { bottom: 0; right: 0; width: 2px; height: 24px; }
 
 .kit__photo {
   width: 100%;

@@ -171,12 +171,19 @@
     }
   },
   "aiKombat": {
-    "sectionTitle": "AI KOMBAT",
-    "sectionSubtitle": "DEMUESTRA TUS HABILIDADES",
-    "label": "🎮 CHALLENGE",
-    "description": "El AI Kombat será online para que toda la comunidad nacional pueda competir y demostrar sus habilidades integrando APIs e IA. Consigue tu Ticket Dorado en los eventos locales para jugar online, y prepárate para la versión física exclusiva del mega-evento de Madrid en 2027.",
-    "features": ["COMPETICIÓN ONLINE", "APIS + IA", "FINAL MADRID 2027"],
-    "cta": "CONSIGUE TU TICKET DORADO"
+    "sectionTitle": "EL LIBRO DE LA AI",
+    "sectionSubtitle": "por Pablo Sagarna y Rafael Granados",
+    "label": "NOVEDAD EDITORIAL",
+    "description": "La última sección del tour presenta El libro de la AI, una guía práctica sobre APIs, integración moderna e inteligencia artificial aplicada. AI Kombat sigue vivo como reto de la comunidad, pero ahora con una base técnica más sólida para preparar a los participantes.",
+    "features": ["APIS E IA APLICADA", "CASOS REALES", "GUÍA PRÁCTICA"],
+    "cta": "QUIERO EL LIBRO",
+    "book": {
+      "series": "WSO2 PRESS",
+      "title": "El libro de la AI",
+      "subtitle": "APIs, integración y arquitectura inteligente para equipos de desarrollo",
+      "authors": "Pablo Sagarna · Rafael Granados",
+      "badge": "Edición especial para la comunidad técnica"
+    }
   },
   "footer": {
     "tagline": "Impulsando el ecosistema tecnológico en España: Comunidad, Branding y Casos de Éxito.",

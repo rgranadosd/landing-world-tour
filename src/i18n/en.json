@@ -171,12 +171,19 @@
     }
   },
   "aiKombat": {
-    "sectionTitle": "AI KOMBAT",
-    "sectionSubtitle": "SHOW YOUR SKILLS",
-    "label": "🎮 CHALLENGE",
-    "description": "AI Kombat will be online so the entire national community can compete and demonstrate their skills integrating APIs and AI. Get your Golden Ticket at local events to play online, and get ready for the exclusive in-person version at the Madrid mega-event in 2027.",
-    "features": ["ONLINE COMPETITION", "APIS + AI", "MADRID FINAL 2027"],
-    "cta": "GET YOUR GOLDEN TICKET"
+    "sectionTitle": "THE AI BOOK",
+    "sectionSubtitle": "by Pablo Sagarna and Rafael Granados",
+    "label": "EDITORIAL RELEASE",
+    "description": "The final section of the tour now introduces The AI Book, a practical guide to APIs, modern integration, and applied artificial intelligence. AI Kombat remains part of the community challenge, now backed by stronger technical foundations for participants.",
+    "features": ["APIS + APPLIED AI", "REAL CASES", "PRACTICAL GUIDE"],
+    "cta": "I WANT THE BOOK",
+    "book": {
+      "series": "WSO2 PRESS",
+      "title": "The AI Book",
+      "subtitle": "APIs, integration and intelligent architecture for development teams",
+      "authors": "Pablo Sagarna · Rafael Granados",
+      "badge": "Special edition for the technical community"
+    }
   },
   "footer": {
     "tagline": "Driving the tech ecosystem in Spain: Community, Branding and Success Stories.",

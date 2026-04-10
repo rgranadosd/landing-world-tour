@@ -1,0 +1,10 @@
+<svg width="1600" height="1000" viewBox="0 0 1600 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1000" fill="#070707"/>
+  <circle cx="340" cy="260" r="220" fill="#FF7300" fill-opacity="0.28"/>
+  <circle cx="1320" cy="180" r="140" fill="#FFFFFF" fill-opacity="0.08"/>
+  <path d="M0 760C180 700 310 650 470 648C670 645 790 746 976 748C1169 750 1308 648 1600 566V1000H0V760Z" fill="#121212"/>
+  <path d="M275 646L505 498L708 646" stroke="#D9D9D9" stroke-opacity="0.22" stroke-width="10"/>
+  <path d="M562 646L710 390L864 646" stroke="#D9D9D9" stroke-opacity="0.18" stroke-width="10"/>
+  <rect x="196" y="646" width="720" height="18" fill="#FF7300" fill-opacity="0.22"/>
+  <text x="104" y="914" fill="#FFFFFF" font-family="Oswald, Arial, sans-serif" font-size="176" letter-spacing="8">VALENCIA</text>
+</svg>

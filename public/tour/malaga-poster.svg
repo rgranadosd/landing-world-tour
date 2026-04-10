@@ -1,0 +1,10 @@
+<svg width="1600" height="1000" viewBox="0 0 1600 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1000" fill="#060708"/>
+  <circle cx="1240" cy="220" r="220" fill="#FF7300" fill-opacity="0.24"/>
+  <path d="M0 760C214 690 402 710 551 748C686 782 781 850 925 852C1119 854 1290 724 1600 610V1000H0V760Z" fill="#0F1418"/>
+  <path d="M0 694H1600" stroke="#FFFFFF" stroke-opacity="0.1" stroke-width="8"/>
+  <path d="M240 694C320 584 402 530 505 530C620 530 716 596 808 694" stroke="#D9D9D9" stroke-opacity="0.18" stroke-width="8"/>
+  <path d="M880 694L994 474L1106 694" stroke="#D9D9D9" stroke-opacity="0.18" stroke-width="8"/>
+  <path d="M1148 694L1278 566L1400 694" stroke="#D9D9D9" stroke-opacity="0.18" stroke-width="8"/>
+  <text x="96" y="914" fill="#FFFFFF" font-family="Oswald, Arial, sans-serif" font-size="176" letter-spacing="8">MALAGA</text>
+</svg>

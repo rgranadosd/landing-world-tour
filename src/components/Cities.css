@@ -1,0 +1,176 @@
+.tour {
+  padding: 6rem 0;
+  background: var(--black);
+  border-top: 1px solid var(--gray-800);
+}
+
+.tour__header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.tour__tabs {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid var(--gray-800);
+}
+
+.tour__tab {
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
+  color: var(--gray-500);
+  text-transform: uppercase;
+}
+
+.tour__tab--active {
+  color: var(--white);
+}
+
+.tour__label {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.tour__desc {
+  font-size: 1rem;
+  color: var(--gray-400);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Tour date row — brucespringsteen.net style */
+.tour__list {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--gray-800);
+}
+
+.tour__date {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr auto;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--gray-800);
+  transition: background 0.2s;
+}
+
+.tour__date:hover {
+  background: var(--gray-900);
+}
+
+.tour__date-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.tour__venue {
+  font-family: var(--font-display);
+  font-size: 0.74rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  color: var(--gray-400);
+  text-transform: uppercase;
+}
+
+.tour__when {
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: var(--white);
+}
+
+.tour__city {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-weight: 700;
+  color: var(--white);
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.tour__tickets {
+  font-family: var(--font-display);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: var(--black);
+  background: var(--accent);
+  padding: 0.65rem 1.2rem;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+
+.tour__tickets:hover {
+  background: var(--white);
+  opacity: 1;
+}
+
+/* Finale row */
+.tour__date--finale {
+  background: var(--gray-900);
+}
+
+.tour__date--finale .tour__city {
+  color: var(--accent);
+}
+
+.tour__finale-badge {
+  font-family: var(--font-display);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 0.65rem 1.2rem;
+  text-transform: uppercase;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.tour__finale-desc {
+  text-align: center;
+  color: var(--gray-400);
+  font-size: 0.95rem;
+  max-width: 600px;
+  margin: 3rem auto 0;
+  line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+  .tour {
+    padding: 4rem 0;
+  }
+
+  .tour__date {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+    padding: 1.25rem 0;
+  }
+
+  .tour__tabs {
+    gap: 0.75rem;
+  }
+
+  .tour__tickets,
+  .tour__finale-badge {
+    justify-self: start;
+  }
+
+  .tour__city {
+    font-size: clamp(1.8rem, 8vw, 2.5rem);
+  }
+}

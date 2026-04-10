@@ -1,0 +1,247 @@
+.tour-updates {
+  padding: 6rem 0;
+  background: var(--black);
+  border-top: 1px solid var(--gray-800);
+}
+
+.tour-updates__header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.tour-updates__title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 0.75rem;
+}
+
+.tour-updates__subtitle {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  letter-spacing: 0.16em;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+
+.tour-updates__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  border: 1px solid var(--gray-800);
+  background: var(--gray-800);
+  margin-bottom: 4rem;
+}
+
+.tour-updates__card {
+  background: var(--black);
+  padding: 0;
+  min-height: 100%;
+  transition: background 0.2s ease;
+}
+
+.tour-updates__card:hover {
+  background: var(--gray-900);
+}
+
+.tour-updates__media {
+  height: 240px;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--gray-800);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.tour-updates__media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 35%, rgba(0, 0, 0, 0.82) 100%);
+}
+
+.tour-updates__media-city {
+  position: absolute;
+  left: 1.5rem;
+  bottom: 1.25rem;
+  z-index: 1;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.1rem);
+  line-height: 0.9;
+  letter-spacing: 0.04em;
+  color: var(--white);
+  text-transform: uppercase;
+}
+
+.tour-updates__meta {
+  padding: 1.5rem 2rem 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  color: var(--gray-400);
+  text-transform: uppercase;
+}
+
+.tour-updates__headline {
+  padding: 0 2rem;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  line-height: 1.05;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.tour-updates__city {
+  padding: 0 2rem;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.tour-updates__description {
+  padding: 0 2rem;
+  color: var(--gray-400);
+  font-size: 0.92rem;
+  line-height: 1.65;
+  margin-bottom: 1.5rem;
+}
+
+.tour-updates__link {
+  display: inline-block;
+  margin: 0 2rem 2rem;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  color: var(--white);
+  text-transform: uppercase;
+}
+
+.tour-updates__link:hover {
+  color: var(--accent);
+  opacity: 1;
+}
+
+.tour-updates__photos {
+  border-top: 1px solid var(--gray-800);
+  padding-top: 3rem;
+}
+
+.tour-updates__photos-header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.tour-updates__photos-kicker {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  letter-spacing: 0.16em;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+
+.tour-updates__photos-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  color: var(--white);
+}
+
+.tour-updates__photos-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 1px;
+  border: 1px solid var(--gray-800);
+  background: var(--gray-800);
+}
+
+.tour-updates__photo {
+  min-height: 320px;
+  position: relative;
+  overflow: hidden;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.tour-updates__photo-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  padding: 1.5rem;
+}
+
+.tour-updates__photo-date {
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.tour-updates__photo-city {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  line-height: 0.92;
+  color: var(--white);
+  text-transform: uppercase;
+}
+
+.tour-updates__credits {
+  margin-top: 1rem;
+  color: var(--gray-500);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 900px) {
+  .tour-updates__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tour-updates__photos-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .tour-updates {
+    padding: 4rem 0;
+  }
+
+  .tour-updates__meta,
+  .tour-updates__headline,
+  .tour-updates__city,
+  .tour-updates__description {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .tour-updates__link {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+  }
+
+  .tour-updates__photos-header {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .tour-updates__media {
+    height: 210px;
+  }
+}

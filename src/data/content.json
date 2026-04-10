@@ -1,0 +1,174 @@
+{
+  "meta": {
+    "title": "WSO2 Community Road Show | Spain",
+    "url": "http://spainroadshow.wso2.com"
+  },
+  "nav": {
+    "logo": "/wso2-logo.svg",
+    "links": [
+      { "label": "INICIO", "href": "#inicio" },
+      { "label": "TOUR", "href": "#tour" },
+      { "label": "TECHNOTARDEO", "href": "#technotardeo" },
+      { "label": "KIT", "href": "#kit" },
+      { "label": "AI KOMBAT", "href": "#aikombat" }
+    ]
+  },
+  "hero": {
+    "badge": "SPAIN ROAD SHOW 2026–2027",
+    "title": "WSO2 COMMUNITY",
+    "subtitle": "ROAD SHOW",
+    "tagline": "De Microservicios a APIs: Conectando a los desarrolladores del futuro",
+    "description": "Únete al tour definitivo para arquitectos y desarrolladores de integraciones en España. Descubre de primera mano los últimos casos de uso de IA, nuestro Tooling más avanzado y conecta con la comunidad local de expertos."
+  },
+  "agenda": {
+    "sectionTitle": "TECHNOTARDEO",
+    "sectionSubtitle": "18:00 – 20:00 HRS · FORMATO DE TARDE",
+    "items": [
+      {
+        "icon": "🎯",
+        "title": "Casos de Uso Locales",
+        "description": "No te contaremos teoría, clientes reales de tu misma zona te explicarán sus casos de éxito y cómo WSO2 ha transformado sus arquitecturas."
+      },
+      {
+        "icon": "⚡",
+        "title": "Debate Técnico de Alto Voltaje",
+        "description": "Prepárate para nuestro panel interactivo y conflictivo donde debatiremos sobre el futuro de la arquitectura: ¿Microservicios o APIs?"
+      },
+      {
+        "icon": "🔐",
+        "title": "Innovación y Seguridad",
+        "description": "Profundizaremos en seguridad y arquitecturas de integración clave para los sectores de Retail, Banca y Sector Público."
+      },
+      {
+        "icon": "🤖",
+        "title": "Tooling e Inteligencia Artificial",
+        "description": "Descubre cómo las herramientas de WSO2 y la IA están cambiando las reglas del juego en el desarrollo."
+      }
+    ]
+  },
+  "tourUpdates": {
+    "sectionTitle": "TOUR UPDATES",
+    "sectionSubtitle": "NOVEDADES DEL TOUR",
+    "credits": "Fotos de ambiente tech en Espana y comunidad WSO2 (Meetup).",
+    "items": [
+      {
+        "city": "Valencia",
+        "date": "16 ABR 2026",
+        "category": "TOUR",
+        "title": "Valencia activa su parada con foco en APIs, seguridad y comunidad.",
+        "description": "La cita en Ciudad de las Artes y las Ciencias reunira a equipos tecnicos de integracion, arquitectura y producto para una sesion centrada en casos reales y networking local.",
+        "image": "/tour/valencia-photo.jpg"
+      },
+      {
+        "city": "Malaga",
+        "date": "30 ABR 2026",
+        "category": "TOUR",
+        "title": "Malaga prepara una tarde dedicada a IA aplicada sobre APIs.",
+        "description": "La parada en el Polo Nacional de Contenidos Digitales pondra el foco en tooling, automatizacion y nuevas formas de construir integraciones con WSO2.",
+        "image": "/tour/malaga-photo.jpg"
+      },
+      {
+        "city": "Barcelona",
+        "date": "14 MAY 2026",
+        "category": "TOUR",
+        "title": "Barcelona acogera la penultima parada antes de la gran final en Madrid.",
+        "description": "La cita en el CCIB llegara en la recta final del road show con sesiones de arquitectura, debate tecnico y activacion del AI Kombat.",
+        "image": "/tour/barcelona-sagrada.jpg"
+      }
+    ],
+    "gallery": [
+      {
+        "title": "HACKATHON",
+        "subtitle": "EQUIPOS CODING",
+        "image": "/tour/event-hackathon-meetup.webp",
+        "position": "center 38%"
+      },
+      {
+        "title": "DEV TALKS",
+        "subtitle": "COMUNIDAD EN VIVO",
+        "image": "/tour/event-devtalk-linkedin.jpg",
+        "position": "center center",
+        "size": "90% auto"
+      },
+      {
+        "title": "PIZZA & BEER",
+        "subtitle": "NETWORKING AFTER HOURS",
+        "image": "/tour/event-pizza-beer-holidayscalendar.jpg",
+        "position": "center 62%"
+      }
+    ]
+  },
+  "kit": {
+    "sectionTitle": "EL KIT DEL ASISTENTE",
+    "sectionSubtitle": "¡Te lo vas a llevar todo!",
+    "description": "Ven a hacer networking, nosotros ponemos el resto. Al asistir a cualquiera de nuestros eventos regionales te llevarás a casa un pack exclusivo pensado para la comunidad:",
+    "items": [
+      {
+        "icon": "🍕",
+        "title": "Networking de calidad",
+        "description": "Empezaremos con pizzas y bebidas para arrancar la tarde de la mejor manera."
+      },
+      {
+        "icon": "👕",
+        "title": "Merchandising Exclusivo",
+        "description": "Camisetas del tour y regalos corporativos para que luzcas los colores de la comunidad."
+      },
+      {
+        "icon": "📘",
+        "title": "Libro de IA",
+        "description": "Edición digital exclusiva para la comunidad. Escrito por expertos WSO2, en castellano.",
+        "comingSoon": true
+      },
+      {
+        "icon": "🎟️",
+        "title": "El Ticket Dorado",
+        "description": "Tu pase de acceso exclusivo para competir en el AI Kombat, el gran reto online para todos los WSO2 Community Users."
+      }
+    ]
+  },
+  "cities": {
+    "sectionTitle": "TOUR",
+    "sectionSubtitle": "WSO2 COMMUNITY ROAD SHOW · SPAIN",
+    "tabs": ["UPCOMING SHOWS", "PAST SHOWS"],
+    "description": "El Road Show recorrerá el país para crear la mayor comunidad técnica.",
+    "locations": [
+      { "name": "Valencia", "venue": "Ciudad de las Artes y las Ciencias", "date": "16 ABR 2026" },
+      { "name": "Santander", "venue": "Palacio de Festivales de Cantabria", "date": "23 ABR 2026" },
+      { "name": "Málaga", "venue": "Polo Nacional de Contenidos Digitales", "date": "30 ABR 2026" },
+      { "name": "A Coruña", "venue": "Palacio de Congresos y Exposiciones", "date": "7 MAY 2026" },
+      { "name": "Barcelona", "venue": "Centre de Convencions Internacional de Barcelona", "date": "14 MAY 2026" }
+    ],
+    "finale": {
+      "city": "Madrid",
+      "venue": "Teatro Goya",
+      "date": "28 MAY 2026",
+      "year": 2026,
+      "tagline": "LA GRAN FINAL",
+      "description": "Todo este recorrido culminará en un evento masivo que se celebrará en la capital el 28 de mayo de 2026, coincidiendo con el gran cierre del tour en España."
+    }
+  },
+  "aiKombat": {
+    "sectionTitle": "AI KOMBAT",
+    "sectionSubtitle": "DEMUESTRA TUS HABILIDADES",
+    "description": "El AI Kombat será online para que toda la comunidad nacional pueda competir y demostrar sus habilidades integrando APIs e IA. Consigue tu Ticket Dorado en los eventos locales para jugar online, y prepárate para la versión física exclusiva del mega-evento de Madrid en 2027.",
+    "features": ["COMPETICIÓN ONLINE", "APIS + IA", "FINAL MADRID 2027"],
+    "cta": "CONSIGUE TU TICKET DORADO"
+  },
+  "footer": {
+    "tagline": "Impulsando el ecosistema tecnológico en España: Comunidad, Branding y Casos de Éxito.",
+    "newsletter": "Mantente al día sobre las últimas noticias del Spain Road Show, anuncios de ponentes y nuevas paradas:",
+    "community": {
+      "label": "ÚNETE A LA COMUNIDAD",
+      "href": "https://www.meetup.com/es-es/comunidad-wso2-espana/?eventOrigin=home_groups_you_organize"
+    },
+    "links": [
+      { "label": "NEWSLETTER", "href": "#newsletter" },
+      { "label": "BLOG", "href": "#blog" }
+    ],
+    "legal": [
+      { "label": "Política de Privacidad", "href": "#privacy" },
+      { "label": "Términos y Condiciones", "href": "#terms" },
+      { "label": "Contacto PR", "href": "#contact" }
+    ]
+  }
+}

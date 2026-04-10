@@ -20,6 +20,10 @@ const { data, info } = await sharp(input)
 const { width, height, channels } = info;
 const pixels = Buffer.from(data);
 
+if (channels !== 4) {
+  throw new Error(`Expected RGBA image, got ${channels} channels.`);
+}
+
 // ── Helpers ──
 const idx = (x, y) => (y * width + x) * channels;
 
@@ -34,35 +38,57 @@ function isWhitish(x, y) {
 // ── Flood-fill from edges ──
 // Only pixels that are white-ish AND connected to the image border are background.
 // Interior whites (book cover) stay untouched.
-const visited = new Uint8Array(width * height);  // 0 = unvisited, 1 = visited bg
-const queue = [];
+const total = width * height;
+const visited = new Uint8Array(total); // 0 = unvisited, 1 = visited bg
+const qx = new Int32Array(total);
+const qy = new Int32Array(total);
+let qHead = 0;
+let qTail = 0;
+
+function enqueue(x, y) {
+  const pi = y * width + x;
+  if (visited[pi]) return;
+  visited[pi] = 1; // mark on enqueue to avoid duplicates
+  qx[qTail] = x;
+  qy[qTail] = y;
+  qTail += 1;
+}
 
 // Seed edges
 for (let x = 0; x < width; x++) {
-  if (isWhitish(x, 0))          queue.push([x, 0]);
-  if (isWhitish(x, height - 1)) queue.push([x, height - 1]);
+  if (isWhitish(x, 0)) enqueue(x, 0);
+  if (isWhitish(x, height - 1)) enqueue(x, height - 1);
 }
 for (let y = 1; y < height - 1; y++) {
-  if (isWhitish(0, y))          queue.push([0, y]);
-  if (isWhitish(width - 1, y))  queue.push([width - 1, y]);
+  if (isWhitish(0, y)) enqueue(0, y);
+  if (isWhitish(width - 1, y)) enqueue(width - 1, y);
 }
 
 // BFS
-while (queue.length > 0) {
-  const [cx, cy] = queue.shift();
-  const pi = cy * width + cx;
-  if (visited[pi]) continue;
-  if (!isWhitish(cx, cy)) continue;
-  visited[pi] = 1;
+while (qHead < qTail) {
+  const cx = qx[qHead];
+  const cy = qy[qHead];
+  qHead += 1;
 
-  // 4-neighbours
-  if (cx > 0)          queue.push([cx - 1, cy]);
-  if (cx < width - 1)  queue.push([cx + 1, cy]);
-  if (cy > 0)          queue.push([cx, cy - 1]);
-  if (cy < height - 1) queue.push([cx, cy + 1]);
+  const pi = cy * width + cx;
+  if (!isWhitish(cx, cy)) continue;
+
+  // 8-neighbour fill catches diagonal bg seams without touching isolated interior whites.
+  for (let ny = cy - 1; ny <= cy + 1; ny++) {
+    for (let nx = cx - 1; nx <= cx + 1; nx++) {
+      if (nx < 0 || nx >= width || ny < 0 || ny >= height) continue;
+      if (nx === cx && ny === cy) continue;
+      if (!isWhitish(nx, ny)) continue;
+      enqueue(nx, ny);
+    }
+  }
 }
 
-console.log(`Flood-fill tagged ${visited.reduce((s, v) => s + v, 0)} background pixels`);
+let bgCount = 0;
+for (let i = 0; i < visited.length; i++) {
+  bgCount += visited[i];
+}
+console.log(`Flood-fill tagged ${bgCount} background pixels`);
 
 // ── Apply transparency only to flood-filled background pixels ──
 for (let y = 0; y < height; y++) {

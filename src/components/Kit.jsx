@@ -39,8 +39,6 @@ export default function Kit() {
           {/* Left: sticky photo */}
           <div className="kit__sticky-col">
             <div ref={photoParallaxRef} className="kit__photo-wrap" style={photoParallaxStyle}>
-              <div className="kit__corner kit__corner--tl" aria-hidden="true" />
-              <div className="kit__corner kit__corner--br" aria-hidden="true" />
               <img
                 className="kit__photo"
                 src={`${import.meta.env.BASE_URL}tour/pizza.png`}

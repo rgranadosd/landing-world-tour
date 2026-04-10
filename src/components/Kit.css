@@ -90,8 +90,7 @@
   position: absolute;
   inset: 0;
   z-index: 3;
-  border-radius: 16px;
-  background: rgba(0, 0, 0, 0.12);
+  background: rgba(0, 0, 0, 0.18);
   pointer-events: none;
 }
 
@@ -134,6 +133,10 @@
   height: auto;
   display: block;
   user-select: none;
+  /* Fill the frame completely */
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: center 40%;
   transition: transform 0.5s cubic-bezier(0.2, 0.6, 0.2, 1);
 }
 

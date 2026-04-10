@@ -61,6 +61,8 @@ export default function AiKombat() {
               width="600"
               height="600"
             />
+            {/* Dark multiply overlay — pulls white asset into the dark scene */}
+            <div className="libro__book-overlay" aria-hidden="true" />
           </div>
         </div>
 

@@ -102,14 +102,17 @@
 
 .libro__stage {
   position: relative;
-  padding: 3rem 0 2.5rem;
+  padding: 3.5rem 0 3rem;
   margin-bottom: 1.5rem;
-  /* Bordered theatrical area */
-  border: 1px dashed rgba(255, 255, 255, 0.08);
+  /* Dark canvas — the stage IS the scene, not just a border */
+  border: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: 20px;
   background:
-    radial-gradient(circle at 50% 45%, rgba(255, 115, 0, 0.025), transparent 55%),
-    rgba(255, 255, 255, 0.006);
+    radial-gradient(ellipse 60% 50% at 50% 40%, rgba(255, 115, 0, 0.04) 0%, transparent 65%),
+    linear-gradient(180deg, #111110 0%, #0c0c0b 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 24px 60px rgba(0, 0, 0, 0.5);
   /* Reveal */
   opacity: 0;
   transform: translateY(28px);
@@ -150,87 +153,160 @@
   color: rgba(255, 255, 255, 0.06);
 }
 
-/* ── Spotlight halo ── */
+/* ── Warm spotlight behind book ── */
 .libro__spotlight {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  width: 380px;
-  height: 380px;
+  transform: translate(-50%, -52%);
+  width: 440px;
+  height: 320px;
   border-radius: 50%;
   background: radial-gradient(
-    circle,
-    rgba(255, 115, 0, 0.065) 0%,
-    rgba(255, 115, 0, 0.025) 40%,
-    transparent 65%
+    ellipse,
+    rgba(255, 130, 20, 0.07) 0%,
+    rgba(255, 100, 10, 0.03) 45%,
+    transparent 68%
   );
-  filter: blur(28px);
+  filter: blur(36px);
   pointer-events: none;
-  animation: spotlightPulse 6s ease-in-out infinite alternate;
+  animation: spotlightPulse 7s ease-in-out infinite alternate;
 }
 
 @keyframes spotlightPulse {
-  from { opacity: 0.55; transform: translate(-50%, -50%) scale(0.94); }
-  to   { opacity: 1;    transform: translate(-50%, -50%) scale(1.06); }
+  from { opacity: 0.6; transform: translate(-50%, -52%) scale(0.92); }
+  to   { opacity: 1;   transform: translate(-50%, -52%) scale(1.08); }
 }
 
-/* ── Book image ── */
+/* ── Book image frame: dark showcase container ── */
 .libro__book-frame {
   position: relative;
-  max-width: 340px;
+  max-width: 360px;
   margin: 0 auto;
   z-index: 1;
+  /* Dark pedestal that absorbs the asset's white background */
+  background: radial-gradient(
+    ellipse 75% 65% at 50% 46%,
+    rgba(30, 28, 26, 0.72) 0%,
+    rgba(14, 13, 12, 0.94) 55%,
+    #0c0c0b 78%
+  );
+  border-radius: 12px;
+  padding: 1.8rem 1.5rem 0.5rem;
+}
+
+/* Contact shadow: realistic base shadow */
+.libro__book-frame::before {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 12%;
+  right: 12%;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.65);
+  filter: blur(14px);
+  z-index: -1;
+}
+
+/* Ambient floor glow from orange warmth */
+.libro__book-frame::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 22%;
+  right: 22%;
+  height: 16px;
+  border-radius: 50%;
+  background: rgba(255, 115, 0, 0.07);
+  filter: blur(10px);
+  z-index: -1;
 }
 
 .libro__book {
   display: block;
   width: 100%;
   height: auto;
-  /* Blend white edges into the dark scene */
-  mask-image: radial-gradient(ellipse 88% 91% at 50% 48%, #000 58%, transparent 86%);
-  -webkit-mask-image: radial-gradient(ellipse 88% 91% at 50% 48%, #000 58%, transparent 86%);
+  position: relative;
+  z-index: 2;
+  /*
+   * Multi-step mask:
+   * — Inner opaque core keeps the book visible
+   * — Aggressive fade on all edges kills the white halo
+   * — Bottom fades fastest (into the contact shadow)
+   */
+  mask-image: radial-gradient(
+    ellipse 80% 84% at 50% 46%,
+    #000 42%,
+    rgba(0,0,0,0.96) 58%,
+    rgba(0,0,0,0.6) 72%,
+    transparent 88%
+  );
+  -webkit-mask-image: radial-gradient(
+    ellipse 80% 84% at 50% 46%,
+    #000 42%,
+    rgba(0,0,0,0.96) 58%,
+    rgba(0,0,0,0.6) 72%,
+    transparent 88%
+  );
   filter:
-    drop-shadow(0 16px 44px rgba(0, 0, 0, 0.55))
-    drop-shadow(0 4px 14px rgba(255, 115, 0, 0.08));
+    drop-shadow(0 2px 6px rgba(0, 0, 0, 0.9))   /* contact */
+    drop-shadow(0 14px 36px rgba(0, 0, 0, 0.7)) /* diffuse */
+    drop-shadow(0 28px 60px rgba(0, 0, 0, 0.5)) /* ambient depth */
+    drop-shadow(0 0 30px rgba(255, 115, 0, 0.06)); /* warm halo */
   transition:
     transform 0.55s cubic-bezier(0.2, 0.6, 0.2, 1),
     filter    0.55s ease;
 }
 
+/* Dark colour overlay to pull white toward the scene's dark tone */
+.libro__book-frame .libro__book-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  border-radius: 12px;
+  background: rgba(10, 9, 8, 0.18);
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
 /* Entrance */
 .libro__stage--vis .libro__book {
   animation:
-    bookEnter 0.9s 0.12s cubic-bezier(0.16, 1, 0.3, 1) both,
-    bookFloat 7s  1.1s  ease-in-out infinite;
+    bookEnter 0.95s 0.12s cubic-bezier(0.16, 1, 0.3, 1) both,
+    bookFloat 7s   1.15s ease-in-out infinite;
 }
 
 @keyframes bookEnter {
   from {
-    transform: scale(0.82) translateY(38px);
+    transform: scale(0.84) translateY(42px);
     opacity: 0;
-    filter: blur(8px) drop-shadow(0 16px 44px rgba(0,0,0,0))
-                       drop-shadow(0 4px 14px rgba(255,115,0,0));
+    filter: blur(10px) drop-shadow(0 0 0 transparent);
   }
   to {
     transform: scale(1) translateY(0);
     opacity: 1;
-    filter: blur(0) drop-shadow(0 16px 44px rgba(0,0,0,0.55))
-                     drop-shadow(0 4px 14px rgba(255,115,0,0.08));
+    filter:
+      drop-shadow(0 2px 6px rgba(0,0,0,0.9))
+      drop-shadow(0 14px 36px rgba(0,0,0,0.7))
+      drop-shadow(0 28px 60px rgba(0,0,0,0.5))
+      drop-shadow(0 0 30px rgba(255,115,0,0.06));
   }
 }
 
 @keyframes bookFloat {
   0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-7px); }
+  50%      { transform: translateY(-8px); }
 }
 
-/* Hover: lift + glow */
+/* Hover: subtle lift, deeper shadows */
 .libro__book-frame:hover .libro__book {
-  transform: scale(1.03) translateY(-5px);
+  transform: scale(1.025) translateY(-6px);
   filter:
-    drop-shadow(0 24px 56px rgba(0, 0, 0, 0.65))
-    drop-shadow(0 8px 22px rgba(255, 115, 0, 0.16));
+    drop-shadow(0 2px 6px rgba(0, 0, 0, 0.95))
+    drop-shadow(0 20px 48px rgba(0, 0, 0, 0.8))
+    drop-shadow(0 36px 72px rgba(0, 0, 0, 0.55))
+    drop-shadow(0 0 40px rgba(255, 115, 0, 0.1));
 }
 
 /* ═══════ FEATURE CHIPS ═══════ */

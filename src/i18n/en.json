@@ -71,7 +71,7 @@
     "items": [
       {
         "city": "Valencia",
-        "date": "APR 16, 2026",
+        "date": "COMING SOON",
         "category": "TOUR",
         "title": "Valencia kick-starts its stop with a focus on APIs, security and community.",
         "description": "The event at the City of Arts and Sciences will bring together technical teams in integration, architecture and product for a session focused on real cases and local networking.",
@@ -79,7 +79,7 @@
       },
       {
         "city": "Málaga",
-        "date": "APR 30, 2026",
+        "date": "COMING SOON",
         "category": "TOUR",
         "title": "Málaga prepares an afternoon dedicated to applied AI on APIs.",
         "description": "The stop at the National Digital Content Hub will focus on tooling, automation and new ways to build integrations with WSO2.",
@@ -87,7 +87,7 @@
       },
       {
         "city": "Barcelona",
-        "date": "MAY 14, 2026",
+        "date": "COMING SOON",
         "category": "TOUR",
         "title": "Barcelona will host the penultimate stop before the grand finale in Madrid.",
         "description": "The event at CCIB will arrive at the final stretch of the road show with architecture sessions, tech debate and AI Kombat activation.",
@@ -155,16 +155,16 @@
     "description": "The Road Show will travel across the country to build the largest tech community.",
     "bookTicket": "BOOK YOUR SPOT",
     "locations": [
-      { "name": "Valencia", "venue": "City of Arts and Sciences", "date": "APR 16, 2026" },
-      { "name": "Santander", "venue": "Palacio de Festivales de Cantabria", "date": "APR 23, 2026" },
-      { "name": "Málaga", "venue": "National Digital Content Hub", "date": "APR 30, 2026" },
-      { "name": "A Coruña", "venue": "Congress and Exhibition Centre", "date": "MAY 7, 2026" },
-      { "name": "Barcelona", "venue": "Barcelona International Convention Centre", "date": "MAY 14, 2026" }
+      { "name": "Valencia", "venue": "City of Arts and Sciences", "date": "COMING SOON" },
+      { "name": "Santander", "venue": "Palacio de Festivales de Cantabria", "date": "COMING SOON" },
+      { "name": "Málaga", "venue": "National Digital Content Hub", "date": "COMING SOON" },
+      { "name": "A Coruña", "venue": "Congress and Exhibition Centre", "date": "COMING SOON" },
+      { "name": "Barcelona", "venue": "Barcelona International Convention Centre", "date": "COMING SOON" }
     ],
     "finale": {
       "city": "Madrid",
       "venue": "Teatro Goya",
-      "date": "MAY 28, 2026",
+      "date": "COMING SOON",
       "year": 2026,
       "tagline": "THE GRAND FINALE",
       "description": "This entire journey will culminate in a massive event in the capital on May 28, 2026, coinciding with the grand closing of the tour in Spain."

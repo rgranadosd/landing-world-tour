@@ -53,7 +53,6 @@ export default function AiKombat() {
 
           {/* Book image */}
           <div className="libro__book-frame">
-            <div className="libro__book-halo" aria-hidden="true" />
             <img
               src={`${base}libro.png`}
               alt={aiKombat.sectionTitle}

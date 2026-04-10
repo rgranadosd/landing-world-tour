@@ -159,23 +159,16 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 520px;
-  height: 420px;
+  width: 480px;
+  height: 380px;
   border-radius: 50%;
-  background:
-    radial-gradient(
-      ellipse 60% 55% at 50% 48%,
-      rgba(255, 255, 255, 0.10) 0%,
-      rgba(255, 255, 255, 0.04) 30%,
-      transparent 58%
-    ),
-    radial-gradient(
-      ellipse 80% 70% at 50% 50%,
-      rgba(255, 130, 20, 0.06) 0%,
-      rgba(255, 100, 10, 0.02) 50%,
-      transparent 72%
-    );
-  filter: blur(30px);
+  background: radial-gradient(
+    ellipse,
+    rgba(255, 130, 20, 0.08) 0%,
+    rgba(255, 100, 10, 0.03) 45%,
+    transparent 68%
+  );
+  filter: blur(32px);
   pointer-events: none;
   animation: spotlightPulse 7s ease-in-out infinite alternate;
 }
@@ -185,66 +178,46 @@
   to   { opacity: 1;   transform: translate(-50%, -50%) scale(1.06); }
 }
 
-/* ── Book image frame ── */
+/* ── Book showcase frame ── */
 .libro__book-frame {
   position: relative;
-  max-width: 360px;
+  max-width: 320px;
   margin: 0 auto;
   z-index: 1;
+  /* Premium showcase card */
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+  /* Gradient border illusion via box-shadow */
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.12),
+    0 8px 24px rgba(0, 0, 0, 0.5),
+    0 24px 56px rgba(0, 0, 0, 0.4),
+    0 0 80px rgba(255, 115, 0, 0.04);
+  transition: transform 0.55s cubic-bezier(0.2, 0.6, 0.2, 1),
+              box-shadow 0.55s ease;
 }
 
-/*
- * White-to-transparent halo BEHIND the book.
- * Matches the book's white bg so it bleeds seamlessly
- * into a luminous glow that fades to the dark scene.
- * NEVER placed ON TOP of the book — only behind.
- */
-.libro__book-halo {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 110%;
-  height: 105%;
-  z-index: 0;
-  border-radius: 12px;
-  background: radial-gradient(
-    ellipse 70% 65% at 50% 48%,
-    rgba(255, 255, 255, 0.55) 0%,
-    rgba(255, 255, 255, 0.35) 25%,
-    rgba(255, 255, 255, 0.15) 48%,
-    rgba(255, 255, 255, 0.04) 68%,
-    transparent 88%
-  );
-  filter: blur(18px);
-  pointer-events: none;
+.libro__book-frame:hover {
+  transform: scale(1.02) translateY(-4px);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.18),
+    0 12px 32px rgba(0, 0, 0, 0.55),
+    0 32px 72px rgba(0, 0, 0, 0.45),
+    0 0 100px rgba(255, 115, 0, 0.06);
 }
 
-/* Contact shadow: realistic base shadow */
-.libro__book-frame::before {
-  content: '';
-  position: absolute;
-  bottom: -6px;
-  left: 12%;
-  right: 12%;
-  height: 28px;
-  border-radius: 50%;
-  background: rgba(0, 0, 0, 0.65);
-  filter: blur(14px);
-  z-index: -1;
-}
-
-/* Ambient floor glow from orange warmth */
+/* Contact shadow beneath the frame */
 .libro__book-frame::after {
   content: '';
   position: absolute;
-  bottom: -4px;
-  left: 22%;
-  right: 22%;
-  height: 16px;
+  bottom: -10px;
+  left: 8%;
+  right: 8%;
+  height: 24px;
   border-radius: 50%;
-  background: rgba(255, 115, 0, 0.07);
-  filter: blur(10px);
+  background: rgba(0, 0, 0, 0.6);
+  filter: blur(16px);
   z-index: -1;
 }
 
@@ -252,22 +225,19 @@
   display: block;
   width: 100%;
   height: auto;
-  position: relative;
-  z-index: 2;
-  /* Rounded corners to soften the rectangular white edge */
-  border-radius: 6px;
-  /* Only drop-shadows — these do NOT alter the book's pixels */
-  filter:
-    drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5))
-    drop-shadow(0 14px 36px rgba(0, 0, 0, 0.4))
-    drop-shadow(0 28px 56px rgba(0, 0, 0, 0.25));
-  transition:
-    transform 0.55s cubic-bezier(0.2, 0.6, 0.2, 1),
-    filter    0.55s ease;
+  /* Crop the white padding around the 3D render to show the book tightly */
+  aspect-ratio: 1 / 1.05;
+  object-fit: cover;
+  object-position: center 46%;
+  transition: transform 0.55s cubic-bezier(0.2, 0.6, 0.2, 1);
 }
 
-/* Entrance */
-.libro__stage--vis .libro__book {
+.libro__book-frame:hover .libro__book {
+  transform: scale(1.03);
+}
+
+/* Entrance — animate the frame, not the image */
+.libro__stage--vis .libro__book-frame {
   animation:
     bookEnter 0.95s 0.12s cubic-bezier(0.16, 1, 0.3, 1) both,
     bookFloat 7s   1.15s ease-in-out infinite;
@@ -277,30 +247,18 @@
   from {
     transform: scale(0.84) translateY(42px);
     opacity: 0;
-    filter: blur(10px) drop-shadow(0 0 0 transparent);
+    filter: blur(8px);
   }
   to {
     transform: scale(1) translateY(0);
     opacity: 1;
-    filter:
-      drop-shadow(0 4px 10px rgba(0,0,0,0.5))
-      drop-shadow(0 14px 36px rgba(0,0,0,0.4))
-      drop-shadow(0 28px 56px rgba(0,0,0,0.25));
+    filter: blur(0);
   }
 }
 
 @keyframes bookFloat {
   0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-8px); }
-}
-
-/* Hover: subtle lift, deeper shadows */
-.libro__book-frame:hover .libro__book {
-  transform: scale(1.025) translateY(-6px);
-  filter:
-    drop-shadow(0 4px 10px rgba(0, 0, 0, 0.6))
-    drop-shadow(0 20px 48px rgba(0, 0, 0, 0.5))
-    drop-shadow(0 36px 68px rgba(0, 0, 0, 0.3));
+  50%      { transform: translateY(-6px); }
 }
 
 /* ═══════ FEATURE CHIPS ═══════ */
@@ -464,7 +422,7 @@
     margin-bottom: 1.2rem;
   }
   .libro__book-frame {
-    max-width: 280px;
+    max-width: 260px;
   }
   .libro__desc {
     font-size: 0.95rem;
@@ -492,7 +450,7 @@
     border-radius: 14px;
   }
   .libro__book-frame {
-    max-width: 240px;
+    max-width: 220px;
   }
   .libro__chips {
     gap: 0.4rem;
@@ -512,7 +470,7 @@
 
 /* ── Reduced motion ── */
 @media (prefers-reduced-motion: reduce) {
-  .libro__book,
+  .libro__book-frame,
   .libro__spotlight {
     animation: none !important;
   }

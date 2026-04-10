@@ -54,15 +54,13 @@ export default function AiKombat() {
           {/* Book image */}
           <div className="libro__book-frame">
             <img
-              src={`${base}libro.png`}
+              src={`${base}libro-nobg.png`}
               alt={aiKombat.sectionTitle}
               className="libro__book"
               loading="lazy"
               width="600"
               height="600"
             />
-            {/* Dark multiply overlay — pulls white asset into the dark scene */}
-            <div className="libro__book-overlay" aria-hidden="true" />
           </div>
         </div>
 

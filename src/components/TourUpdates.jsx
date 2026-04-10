@@ -35,8 +35,8 @@ export default function TourUpdates() {
   const { t } = useTranslation();
   const { tourUpdates } = t;
   const [ref, isVisible] = useScrollReveal();
-  const [headerPRef, headerPStyle] = useParallax(0.115, 'up');
-  const [galleryPRef, galleryPStyle] = useParallax(0.11, 'up');
+  const [headerPRef, headerPStyle] = useParallax(0.065, 'up');
+  const [galleryPRef, galleryPStyle] = useParallax(0.06, 'up');
 
   return (
     <section id="tour-updates" className="tour-updates">

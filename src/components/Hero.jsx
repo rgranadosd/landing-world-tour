@@ -5,7 +5,7 @@ import './Hero.css';
 export default function Hero() {
   const { t } = useTranslation();
   const { hero } = t;
-  const [parallaxRef, parallaxStyle] = useParallax(0.14, 'up');
+  const [parallaxRef, parallaxStyle] = useParallax(0.08, 'up');
 
   return (
     <section id="inicio" className="hero">

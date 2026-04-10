@@ -15,9 +15,9 @@ export function useParallax(speed = 0.04, direction = 'up') {
   const rafId = useRef(null);
 
   // Cinematic on desktop, controlled on mobile.
-  const ease = 0.085;
-  const desktopMaxShift = 96;
-  const mobileMaxShift = 48;
+  const ease = 0.065;
+  const desktopMaxShift = 52;
+  const mobileMaxShift = 26;
 
   const animate = useCallback(() => {
     // Smoothly interpolate towards target
@@ -53,7 +53,7 @@ export function useParallax(speed = 0.04, direction = 'up') {
       const windowH = window.innerHeight;
       const isMobile = window.innerWidth <= 900;
       const maxShift = isMobile ? mobileMaxShift : desktopMaxShift;
-      const speedMultiplier = isMobile ? 0.72 : 1.18;
+      const speedMultiplier = isMobile ? 0.5 : 0.75;
       const progress = 1 - (rect.top + rect.height) / (windowH + rect.height);
       const raw = (progress - 0.5) * speed * speedMultiplier * windowH * (direction === 'up' ? -1 : 1);
       target.current = Math.max(-maxShift, Math.min(maxShift, raw));

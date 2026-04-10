@@ -7,7 +7,7 @@ export default function Agenda() {
   const { t } = useTranslation();
   const { agenda } = t;
   const [hRef, hVis] = useScrollReveal();
-  const [pRef, pStyle] = useParallax(0.12, 'up');
+  const [pRef, pStyle] = useParallax(0.07, 'up');
   const [layoutRef, layoutVis] = useScrollReveal(0.12);
 
   const heroLines = agenda.heroTitle.split('\n');

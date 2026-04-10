@@ -7,8 +7,8 @@ export default function Kit() {
   const { t } = useTranslation();
   const { kit } = t;
   const [titleRef, titleVisible] = useScrollReveal();
-  const [pRef, pStyle] = useParallax(0.11, 'up');
-  const [photoParallaxRef, photoParallaxStyle] = useParallax(0.13, 'down');
+  const [pRef, pStyle] = useParallax(0.06, 'up');
+  const [photoParallaxRef, photoParallaxStyle] = useParallax(0.07, 'down');
   const [boxRef, boxVisible] = useScrollReveal(0.15);
 
   // Force editorial order: Golden Ticket first, book last right after it.

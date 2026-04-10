@@ -7,7 +7,7 @@ export default function AiKombat() {
   const { t } = useTranslation();
   const { aiKombat } = t;
   const [ref, isVisible] = useScrollReveal();
-  const [pRef, pStyle] = useParallax(0.13, 'up');
+  const [pRef, pStyle] = useParallax(0.07, 'up');
 
   return (
     <section id="aikombat" className="kombat">

@@ -71,17 +71,26 @@
 
 /* Language toggle */
 .header__lang {
-  font-size: 1.35rem;
-  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background: transparent;
   border: none;
   cursor: pointer;
-  padding: 0.2rem;
-  transition: transform 0.2s;
+  padding: 0.25rem;
+  border-radius: 3px;
+  transition: transform 0.2s, opacity 0.2s;
+  opacity: 0.85;
+}
+
+.header__lang svg {
+  display: block;
+  border-radius: 2px;
 }
 
 .header__lang:hover {
-  transform: scale(1.2);
+  transform: scale(1.15);
+  opacity: 1;
 }
 
 /* Burger */
@@ -148,7 +157,8 @@
     font-size: 1.1rem;
   }
 
-  .header__lang {
-    font-size: 1.6rem;
+  .header__lang svg {
+    width: 28px;
+    height: 14px;
   }
 }

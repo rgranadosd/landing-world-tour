@@ -7,75 +7,92 @@ export default function AiKombat() {
   const { t } = useTranslation();
   const { aiKombat } = t;
   const [headerRef, headerVis] = useScrollReveal();
-  const [bookRef, bookVis] = useScrollReveal(0.15);
-  const [pRef, pStyle] = useParallax(0.06, 'up');
+  const [sceneRef, sceneVis] = useScrollReveal(0.08);
+  const [contentRef, contentVis] = useScrollReveal(0.12);
+  const [pRef, pStyle] = useParallax(0.05, 'up');
   const base = import.meta.env.BASE_URL;
 
   return (
-    <section id="aikombat" className="kombat">
-      {/* Ambient light rays */}
-      <div className="kombat__rays" aria-hidden="true" />
+    <section id="aikombat" className="libro">
+      {/* Background: subtle blueprint grid */}
+      <div className="libro__grid" aria-hidden="true" />
+      {/* Background: orange gradient accents */}
+      <div className="libro__gradient" aria-hidden="true" />
 
-      {/* Decorative grid lines */}
-      <div className="kombat__gridlines" aria-hidden="true">
-        <span /><span /><span /><span />
-      </div>
-
-      <div className="container">
-        {/* ── HEADER ── */}
-        <div
+      <div className="libro__wrap">
+        {/* ── EDITORIAL HEADER ── */}
+        <header
           ref={(n) => { headerRef.current = n; pRef.current = n; }}
-          className={`kombat__header reveal ${headerVis ? 'visible' : ''}`}
+          className={`libro__header reveal ${headerVis ? 'visible' : ''}`}
           style={pStyle}
         >
-          <span className="kombat__kicker">{aiKombat.label}</span>
-          <h2 className="kombat__title">{aiKombat.sectionTitle}</h2>
-          <p className="kombat__subtitle">{aiKombat.sectionSubtitle}</p>
-        </div>
+          <span className="libro__kicker">{aiKombat.label}</span>
+          <h2 className="libro__title">{aiKombat.sectionTitle}</h2>
+          <div className="libro__authors">
+            <span className="libro__authors-rule" aria-hidden="true" />
+            <span className="libro__authors-name">{aiKombat.sectionSubtitle}</span>
+            <span className="libro__authors-rule" aria-hidden="true" />
+          </div>
+        </header>
 
-        {/* ── BOOK LAYOUT ── */}
+        {/* ── BOOK STAGE — Theatrical display ── */}
         <div
-          ref={bookRef}
-          className={`kombat__stage ${bookVis ? 'kombat__stage--vis' : ''}`}
+          ref={sceneRef}
+          className={`libro__stage ${sceneVis ? 'libro__stage--vis' : ''}`}
         >
-          {/* Cover Image */}
-          <div className="kombat__cover-wrap">
-            {/* Layered glows */}
-            <div className="kombat__cover-glow" aria-hidden="true" />
-            <div className="kombat__cover-glow kombat__cover-glow--warm" aria-hidden="true" />
+          {/* Ghost technical labels */}
+          <span className="libro__ghost libro__ghost--tl" aria-hidden="true">
+            ARCHITECTURE · AGENTS · LLMs
+          </span>
+          <span className="libro__ghost libro__ghost--br" aria-hidden="true">
+            MCPs · RAGs · APIs · ENTERPRISE
+          </span>
 
-            {/* Floating particles */}
-            <div className="kombat__particles" aria-hidden="true">
-              <span /><span /><span /><span /><span /><span /><span /><span />
-            </div>
+          {/* Spotlight halo */}
+          <div className="libro__spotlight" aria-hidden="true" />
 
+          {/* Book image */}
+          <div className="libro__book-frame">
             <img
               src={`${base}libro.png`}
               alt={aiKombat.sectionTitle}
-              className="kombat__cover-img"
+              className="libro__book"
               loading="lazy"
               width="600"
               height="600"
             />
           </div>
+        </div>
 
-          {/* Content */}
-          <div className="kombat__body">
-            <p className="kombat__desc">{aiKombat.description}</p>
+        {/* ── FEATURE CHIPS ── */}
+        <div className={`libro__chips ${sceneVis ? 'libro__chips--vis' : ''}`}>
+          {aiKombat.features.map((f, i) => (
+            <span
+              key={f}
+              className="libro__chip"
+              style={{ transitionDelay: `${0.3 + i * 0.08}s` }}
+            >
+              {f}
+            </span>
+          ))}
+        </div>
 
-            <div className="kombat__pills">
-              {aiKombat.features.map((f) => (
-                <span key={f} className="kombat__pill">{f}</span>
-              ))}
-            </div>
+        {/* ── EDITORIAL CONTENT ── */}
+        <div
+          ref={contentRef}
+          className={`libro__content ${contentVis ? 'libro__content--vis' : ''}`}
+        >
+          <p className="libro__desc">{aiKombat.description}</p>
 
-            <div className="kombat__exclusive">
-              <span className="kombat__exclusive-icon" aria-hidden="true">★</span>
-              <p className="kombat__exclusive-text">{aiKombat.exclusive}</p>
-            </div>
-
-            <a href="#reserva" className="kombat__cta">{aiKombat.cta}</a>
+          <div className="libro__callout">
+            <span className="libro__callout-mark" aria-hidden="true">★</span>
+            <p className="libro__callout-text">{aiKombat.exclusive}</p>
           </div>
+
+          <a href="#ciudades" className="libro__cta">
+            <span className="libro__cta-label">{aiKombat.cta}</span>
+            <span className="libro__cta-arrow" aria-hidden="true">→</span>
+          </a>
         </div>
       </div>
     </section>

@@ -1,323 +1,454 @@
 /* ═══════════════════════════════════════════
-   BOOK / AI KOMBAT SECTION
+   EL LIBRO DE LA IA — Editorial Premium
    ═══════════════════════════════════════════ */
 
-.kombat {
+/* ── Section root ── */
+.libro {
   position: relative;
   padding: 7rem 0 6rem;
-  background: linear-gradient(168deg, #0d0d14 0%, #111119 40%, #0c0c11 100%);
-  border-top: 1px solid var(--gray-800);
+  background: #0c0c0b;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
   overflow: hidden;
+  color: #fff;
 }
 
-/* Ambient light rays behind everything */
-.kombat__rays {
+/* ── Background: subtle blueprint grid ── */
+.libro__grid {
   position: absolute;
   inset: 0;
-  pointer-events: none;
   background:
-    radial-gradient(ellipse 60% 80% at 30% 50%, rgba(232,121,36,0.04) 0%, transparent 60%),
-    radial-gradient(ellipse 50% 70% at 70% 40%, rgba(180,60,20,0.03) 0%, transparent 55%);
-  animation: raysShift 12s ease-in-out infinite alternate;
-}
-@keyframes raysShift {
-  from { opacity: 0.5; transform: scale(1); }
-  to   { opacity: 1;   transform: scale(1.05); }
-}
-
-/* Decorative vertical grid lines */
-.kombat__gridlines {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  justify-content: space-evenly;
+    linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+  background-size: 52px 52px;
+  mask-image: radial-gradient(ellipse 70% 55% at 50% 38%, #000 25%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 55% at 50% 38%, #000 25%, transparent 70%);
   pointer-events: none;
 }
-.kombat__gridlines span {
-  width: 1px;
-  background: linear-gradient(180deg, transparent, rgba(255,255,255,0.03) 30%, rgba(255,255,255,0.03) 70%, transparent);
+
+/* ── Background: orange gradient accents ── */
+.libro__gradient {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 45% 35% at 50% 38%, rgba(255, 115, 0, 0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 25% 25% at 22% 70%, rgba(200, 80, 20, 0.02) 0%, transparent 50%);
+  pointer-events: none;
 }
 
-/* ── HEADER ── */
-.kombat__header {
+/* ── Wrapper ── */
+.libro__wrap {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* ═══════ EDITORIAL HEADER ═══════ */
+
+.libro__header {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 3.2rem;
 }
 
-.kombat__kicker {
+.libro__kicker {
   display: inline-block;
-  font-family: var(--font-display);
-  font-size: 0.82rem;
-  font-weight: 500;
-  letter-spacing: 0.22em;
-  color: var(--accent);
-  margin-bottom: 1.2rem;
-  text-transform: uppercase;
-}
-
-.kombat__title {
   font-family: 'Barlow Condensed', var(--font-display);
-  font-size: clamp(2.6rem, 7vw, 5.5rem);
-  font-weight: 700;
-  color: var(--white);
-  line-height: 0.92;
-  margin-bottom: 0.6rem;
-  text-transform: uppercase;
-}
-
-.kombat__subtitle {
-  font-family: var(--font-display);
-  font-size: 1.15rem;
-  font-weight: 400;
-  letter-spacing: 0.12em;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.24em;
   color: var(--accent);
   text-transform: uppercase;
+  border: 1px solid rgba(255, 115, 0, 0.32);
+  padding: 0.32em 1.1em;
+  margin-bottom: 1.4rem;
 }
 
-/* ── STAGE ── (two-column book layout) */
-.kombat__stage {
-  display: grid;
-  grid-template-columns: minmax(280px, 420px) minmax(0, 1fr);
-  gap: 3.5rem;
-  align-items: center;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+.libro__title {
+  font-family: 'Barlow Condensed', var(--font-display);
+  font-size: clamp(3.4rem, 9vw, 6.4rem);
+  font-weight: 700;
+  color: #fff;
+  line-height: 0.88;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin-bottom: 1.3rem;
 }
-.kombat__stage--vis {
+
+.libro__authors {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.libro__authors-rule {
+  flex: 0 1 52px;
+  height: 1px;
+  background: rgba(255, 115, 0, 0.28);
+}
+
+.libro__authors-name {
+  font-family: 'Barlow Condensed', var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  color: var(--accent);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* ═══════ BOOK STAGE — Theatrical display ═══════ */
+
+.libro__stage {
+  position: relative;
+  padding: 3rem 0 2.5rem;
+  margin-bottom: 1.5rem;
+  /* Bordered theatrical area */
+  border: 1px dashed rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  background:
+    radial-gradient(circle at 50% 45%, rgba(255, 115, 0, 0.025), transparent 55%),
+    rgba(255, 255, 255, 0.006);
+  /* Reveal */
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s cubic-bezier(0.2, 0.6, 0.2, 1),
+              transform 0.8s cubic-bezier(0.2, 0.6, 0.2, 1);
+}
+
+.libro__stage--vis {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* ── COVER WRAP ── */
-.kombat__cover-wrap {
-  position: relative;
-  perspective: 1200px;
-}
-
-/* ── GLOWS ── */
-.kombat__cover-glow {
+/* Ghost technical labels */
+.libro__ghost {
   position: absolute;
-  inset: -35%;
-  border-radius: 50%;
-  background: radial-gradient(ellipse at center, rgba(232,121,36,0.16) 0%, transparent 65%);
-  filter: blur(60px);
-  z-index: 0;
-  animation: glowPulse 4s ease-in-out infinite alternate;
-}
-.kombat__cover-glow--warm {
-  inset: -20%;
-  background: radial-gradient(ellipse 70% 60% at 35% 55%, rgba(200,70,15,0.12) 0%, transparent 55%);
-  filter: blur(45px);
-  animation-delay: -2s;
-  animation-duration: 5s;
-}
-
-@keyframes glowPulse {
-  from { opacity: 0.5; transform: scale(0.96); }
-  to   { opacity: 1;   transform: scale(1.04); }
-}
-
-/* ── FLOATING PARTICLES ── */
-.kombat__particles {
-  position: absolute;
-  inset: -15%;
-  z-index: 2;
+  font-family: 'Barlow Condensed', var(--font-display);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
   pointer-events: none;
+  user-select: none;
+  opacity: 0;
+  transition: opacity 0.6s 0.4s ease;
 }
-.kombat__particles span {
+
+.libro__stage--vis .libro__ghost { opacity: 1; }
+
+.libro__ghost--tl {
+  top: 14px;
+  left: 18px;
+  font-size: 0.58rem;
+  color: rgba(255, 255, 255, 0.07);
+}
+
+.libro__ghost--br {
+  bottom: 14px;
+  right: 18px;
+  font-size: 0.54rem;
+  color: rgba(255, 255, 255, 0.06);
+}
+
+/* ── Spotlight halo ── */
+.libro__spotlight {
   position: absolute;
-  width: 3px;
-  height: 3px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 380px;
+  height: 380px;
   border-radius: 50%;
-  background: rgba(232,121,36,0.7);
-  box-shadow: 0 0 6px rgba(232,121,36,0.4);
-  animation: particleFloat var(--dur, 7s) var(--delay, 0s) ease-in-out infinite;
-}
-.kombat__particles span:nth-child(1) { top: 20%; left: 5%;  --dur: 6s; --delay: 0s; }
-.kombat__particles span:nth-child(2) { top: 10%; right: 15%; --dur: 8s; --delay: -1s; width: 2px; height: 2px; }
-.kombat__particles span:nth-child(3) { bottom: 25%; left: 10%; --dur: 7s; --delay: -3s; }
-.kombat__particles span:nth-child(4) { top: 50%; right: 5%;  --dur: 9s; --delay: -2s; width: 4px; height: 4px; }
-.kombat__particles span:nth-child(5) { bottom: 10%; right: 20%; --dur: 6.5s; --delay: -4s; width: 2px; height: 2px; }
-.kombat__particles span:nth-child(6) { top: 35%; left: -5%; --dur: 8.5s; --delay: -1.5s; }
-.kombat__particles span:nth-child(7) { bottom: 40%; right: 0; --dur: 7.5s; --delay: -3.5s; width: 2px; height: 2px; }
-.kombat__particles span:nth-child(8) { top: 5%;  left: 40%; --dur: 10s; --delay: -5s; }
-
-@keyframes particleFloat {
-  0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
-  10%      { opacity: 1; }
-  50%      { transform: translateY(-30px) translateX(12px); opacity: 0.8; }
-  90%      { opacity: 1; }
+  background: radial-gradient(
+    circle,
+    rgba(255, 115, 0, 0.065) 0%,
+    rgba(255, 115, 0, 0.025) 40%,
+    transparent 65%
+  );
+  filter: blur(28px);
+  pointer-events: none;
+  animation: spotlightPulse 6s ease-in-out infinite alternate;
 }
 
-/* ── COVER IMAGE ── */
-.kombat__cover-img {
+@keyframes spotlightPulse {
+  from { opacity: 0.55; transform: translate(-50%, -50%) scale(0.94); }
+  to   { opacity: 1;    transform: translate(-50%, -50%) scale(1.06); }
+}
+
+/* ── Book image ── */
+.libro__book-frame {
   position: relative;
+  max-width: 340px;
+  margin: 0 auto;
   z-index: 1;
+}
+
+.libro__book {
   display: block;
   width: 100%;
   height: auto;
-  border-radius: 6px;
-  /* Vignette mask to seamlessly blend the light bg into the dark section */
-  mask-image: radial-gradient(ellipse 88% 92% at 50% 48%, #000 55%, transparent 88%);
-  -webkit-mask-image: radial-gradient(ellipse 88% 92% at 50% 48%, #000 55%, transparent 88%);
-  filter: drop-shadow(0 20px 50px rgba(0,0,0,0.6))
-          drop-shadow(0 8px 20px rgba(232,121,36,0.15));
-  /* Floating animation */
-  animation: bookFloat 6s ease-in-out infinite;
-  transition: transform 0.5s cubic-bezier(.25,.46,.45,.94),
-              filter 0.5s ease;
+  /* Blend white edges into the dark scene */
+  mask-image: radial-gradient(ellipse 88% 91% at 50% 48%, #000 58%, transparent 86%);
+  -webkit-mask-image: radial-gradient(ellipse 88% 91% at 50% 48%, #000 58%, transparent 86%);
+  filter:
+    drop-shadow(0 16px 44px rgba(0, 0, 0, 0.55))
+    drop-shadow(0 4px 14px rgba(255, 115, 0, 0.08));
+  transition:
+    transform 0.55s cubic-bezier(0.2, 0.6, 0.2, 1),
+    filter    0.55s ease;
 }
 
-/* Dramatic entrance */
-.kombat__stage--vis .kombat__cover-img {
-  animation: bookReveal 1s 0.15s cubic-bezier(.16,1,.3,1) both,
-             bookFloat 6s 1.2s ease-in-out infinite;
+/* Entrance */
+.libro__stage--vis .libro__book {
+  animation:
+    bookEnter 0.9s 0.12s cubic-bezier(0.16, 1, 0.3, 1) both,
+    bookFloat 7s  1.1s  ease-in-out infinite;
 }
 
-@keyframes bookReveal {
+@keyframes bookEnter {
   from {
-    transform: scale(0.7) rotateY(-18deg) translateY(50px);
+    transform: scale(0.82) translateY(38px);
     opacity: 0;
-    filter: blur(10px) drop-shadow(0 20px 50px rgba(0,0,0,0))
-            drop-shadow(0 8px 20px rgba(232,121,36,0));
+    filter: blur(8px) drop-shadow(0 16px 44px rgba(0,0,0,0))
+                       drop-shadow(0 4px 14px rgba(255,115,0,0));
   }
   to {
-    transform: scale(1) rotateY(0) translateY(0);
+    transform: scale(1) translateY(0);
     opacity: 1;
-    filter: blur(0) drop-shadow(0 20px 50px rgba(0,0,0,0.6))
-            drop-shadow(0 8px 20px rgba(232,121,36,0.15));
+    filter: blur(0) drop-shadow(0 16px 44px rgba(0,0,0,0.55))
+                     drop-shadow(0 4px 14px rgba(255,115,0,0.08));
   }
 }
 
 @keyframes bookFloat {
   0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-10px); }
+  50%      { transform: translateY(-7px); }
 }
 
-/* Hover: lift + stronger glow */
-.kombat__cover-wrap:hover .kombat__cover-img {
-  transform: scale(1.04) translateY(-8px) rotateY(-2deg);
-  filter: drop-shadow(0 30px 70px rgba(0,0,0,0.7))
-          drop-shadow(0 12px 30px rgba(232,121,36,0.3));
-}
-.kombat__cover-wrap:hover .kombat__cover-glow {
-  opacity: 1.2;
-  transform: scale(1.1);
+/* Hover: lift + glow */
+.libro__book-frame:hover .libro__book {
+  transform: scale(1.03) translateY(-5px);
+  filter:
+    drop-shadow(0 24px 56px rgba(0, 0, 0, 0.65))
+    drop-shadow(0 8px 22px rgba(255, 115, 0, 0.16));
 }
 
-/* ── TEXT BODY ── */
-.kombat__body {
+/* ═══════ FEATURE CHIPS ═══════ */
+
+.libro__chips {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-bottom: 3rem;
+}
+
+.libro__chip {
+  font-family: 'Barlow Condensed', var(--font-display);
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: rgba(255, 115, 0, 0.82);
+  border: 1px solid rgba(255, 115, 0, 0.22);
+  background: rgba(255, 115, 0, 0.035);
+  padding: 0.28rem 0.85rem;
+  border-radius: 999px;
+  /* Staggered reveal */
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity 0.45s ease,
+    transform 0.45s ease,
+    background 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.libro__chips--vis .libro__chip {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.libro__chip:hover {
+  background: rgba(255, 115, 0, 0.08);
+  border-color: rgba(255, 115, 0, 0.5);
+}
+
+/* ═══════ EDITORIAL CONTENT ═══════ */
+
+.libro__content {
+  max-width: 660px;
+  margin: 0 auto;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.libro__content--vis {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.libro__desc {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 1rem;
+  line-height: 1.74;
+  margin: 0 0 2.2rem;
+}
+
+/* ── Exclusive callout (editorial pull-quote) ── */
+.libro__callout {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  text-align: left;
+  background: rgba(255, 115, 0, 0.035);
+  border-left: 2px solid rgba(255, 115, 0, 0.4);
+  padding: 0.85rem 1.1rem;
+  margin: 0 auto 2.6rem;
+  max-width: 540px;
+  border-radius: 0 4px 4px 0;
+}
+
+.libro__callout-mark {
+  color: var(--accent);
+  font-size: 0.8rem;
+  flex-shrink: 0;
+  margin-top: 0.12rem;
+}
+
+.libro__callout-text {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.52);
+  line-height: 1.55;
+  margin: 0;
+  font-style: italic;
+}
+
+/* ── CTA — Refined inline link ── */
+.libro__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: 'Barlow Condensed', var(--font-display);
+  font-size: 0.84rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid rgba(255, 115, 0, 0.3);
+  padding: 0.62rem 1.6rem;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+/* Fill animation on hover */
+.libro__cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 115, 0, 0.08);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.libro__cta:hover::before {
+  transform: scaleX(1);
+}
+
+.libro__cta:hover {
+  border-color: var(--accent);
+  opacity: 1;
+}
+
+.libro__cta-label {
   position: relative;
   z-index: 1;
 }
 
-.kombat__desc {
-  color: var(--gray-300);
-  font-size: 1.05rem;
-  line-height: 1.75;
-  margin: 0 0 2rem;
-}
-
-.kombat__pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  margin-bottom: 2rem;
-}
-
-.kombat__pill {
-  font-family: var(--font-display);
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--accent);
-  border: 1px solid rgba(232,121,36,0.3);
-  padding: 0.45rem 1rem;
-  border-radius: 100px;
-  background: rgba(232,121,36,0.04);
-  transition: background 0.25s, border-color 0.25s, box-shadow 0.25s;
-}
-.kombat__pill:hover {
-  background: rgba(232,121,36,0.1);
-  border-color: var(--accent);
-  box-shadow: 0 0 14px rgba(232,121,36,0.12);
-}
-
-/* Exclusive badge */
-.kombat__exclusive {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.7rem;
-  background: rgba(232,121,36,0.06);
-  border-left: 3px solid var(--accent);
-  padding: 1rem 1.2rem;
-  margin-bottom: 2rem;
-  border-radius: 0 6px 6px 0;
-}
-.kombat__exclusive-icon {
-  color: var(--accent);
+.libro__cta-arrow {
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease;
   font-size: 1rem;
-  flex-shrink: 0;
-  margin-top: 0.15rem;
-}
-.kombat__exclusive-text {
-  font-size: 0.88rem;
-  color: var(--gray-300);
-  line-height: 1.55;
-  margin: 0;
 }
 
-/* CTA */
-.kombat__cta {
-  display: inline-block;
-  font-family: var(--font-display);
-  font-size: 0.95rem;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  color: var(--black);
-  background: var(--accent);
-  padding: 1rem 2.8rem;
-  text-transform: uppercase;
-  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
-}
-.kombat__cta:hover {
-  background: var(--white);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(232,121,36,0.3);
-  opacity: 1;
+.libro__cta:hover .libro__cta-arrow {
+  transform: translateX(4px);
 }
 
-/* ── RESPONSIVE ── */
+/* ═══════ RESPONSIVE ═══════ */
+
 @media (max-width: 900px) {
-  .kombat {
+  .libro {
     padding: 5rem 0 4rem;
   }
-  .kombat__header {
+  .libro__header {
     margin-bottom: 2.5rem;
   }
-  .kombat__stage {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    max-width: 480px;
-    margin: 0 auto;
+  .libro__stage {
+    padding: 2.2rem 1rem;
+    margin-bottom: 1.2rem;
   }
-  .kombat__cover-wrap {
-    max-width: 340px;
-    margin: 0 auto;
+  .libro__book-frame {
+    max-width: 280px;
   }
-  .kombat__pills {
+  .libro__desc {
+    font-size: 0.95rem;
+  }
+  .libro__ghost {
+    display: none;
+  }
+}
+
+@media (max-width: 540px) {
+  .libro {
+    padding: 4rem 0 3.5rem;
+  }
+  .libro__wrap {
+    padding: 0 1.2rem;
+  }
+  .libro__title {
+    font-size: clamp(2.8rem, 13vw, 4rem);
+  }
+  .libro__authors-rule {
+    flex: 0 1 24px;
+  }
+  .libro__stage {
+    padding: 1.8rem 0.6rem;
+    border-radius: 14px;
+  }
+  .libro__book-frame {
+    max-width: 240px;
+  }
+  .libro__chips {
+    gap: 0.4rem;
+  }
+  .libro__chip {
+    font-size: 0.58rem;
+    padding: 0.22rem 0.65rem;
+  }
+  .libro__callout {
+    padding: 0.7rem 0.85rem;
+  }
+  .libro__cta {
+    width: 100%;
     justify-content: center;
   }
-  .kombat__body {
-    text-align: center;
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .libro__book,
+  .libro__spotlight {
+    animation: none !important;
   }
-  .kombat__exclusive {
-    text-align: left;
-  }
-  .kombat__cta {
-    width: 100%;
-    text-align: center;
+  .libro__stage,
+  .libro__chip,
+  .libro__content {
+    transition-duration: 0.01s !important;
   }
 }

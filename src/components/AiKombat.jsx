@@ -1,10 +1,11 @@
-import content from '../data/content.json';
+import { useTranslation } from '../context/LanguageContext';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { useParallax } from '../hooks/useParallax';
 import './AiKombat.css';
 
 export default function AiKombat() {
-  const { aiKombat } = content;
+  const { t } = useTranslation();
+  const { aiKombat } = t;
   const [ref, isVisible] = useScrollReveal();
   const [pRef, pStyle] = useParallax(0.13, 'up');
 
@@ -16,7 +17,7 @@ export default function AiKombat() {
           className={`kombat__content reveal ${isVisible ? 'visible' : ''}`}
           style={pStyle}
         >
-          <span className="kombat__label">🎮 CHALLENGE</span>
+          <span className="kombat__label">{aiKombat.label}</span>
           <h2 className="kombat__title">{aiKombat.sectionTitle}</h2>
           <p className="kombat__subtitle">{aiKombat.sectionSubtitle}</p>
           <p className="kombat__desc">{aiKombat.description}</p>

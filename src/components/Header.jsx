@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
-import content from '../data/content.json';
+import { useTranslation } from '../context/LanguageContext';
 import './Header.css';
 
 export default function Header() {
+  const { lang, t, toggleLang } = useTranslation();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -28,7 +29,7 @@ export default function Header() {
         </button>
 
         <nav className={`header__nav ${menuOpen ? 'header__nav--open' : ''}`}>
-          {content.nav.links.map((link) => (
+          {t.nav.links.map((link) => (
             <a
               key={link.href}
               href={link.href}
@@ -38,6 +39,9 @@ export default function Header() {
               {link.label}
             </a>
           ))}
+          <button className="header__lang" onClick={toggleLang} aria-label="Change language">
+            {lang === 'es' ? 'EN' : 'ES'}
+          </button>
         </nav>
       </div>
     </header>

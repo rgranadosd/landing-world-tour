@@ -1,3 +1,4 @@
+import { LanguageProvider } from './context/LanguageContext'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import Cities from './components/Cities'
@@ -9,7 +10,7 @@ import Footer from './components/Footer'
 
 function App() {
   return (
-    <>
+    <LanguageProvider>
       <Header />
       <Hero />
       <Cities />
@@ -18,7 +19,7 @@ function App() {
       <Kit />
       <AiKombat />
       <Footer />
-    </>
+    </LanguageProvider>
   )
 }
 

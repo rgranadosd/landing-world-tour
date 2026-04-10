@@ -1,9 +1,10 @@
-import content from '../data/content.json';
+import { useTranslation } from '../context/LanguageContext';
 import { useParallax } from '../hooks/useParallax';
 import './Hero.css';
 
 export default function Hero() {
-  const { hero } = content;
+  const { t } = useTranslation();
+  const { hero } = t;
   const [parallaxRef, parallaxStyle] = useParallax(0.14, 'up');
 
   return (

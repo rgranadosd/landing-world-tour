@@ -1,8 +1,8 @@
-import content from '../data/content.json';
+import { useTranslation } from '../context/LanguageContext';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import './Cities.css';
 
-function TourDate({ location, index }) {
+function TourDate({ location, index, bookLabel }) {
   const [ref, isVisible] = useScrollReveal(0.1);
   return (
     <div
@@ -15,13 +15,14 @@ function TourDate({ location, index }) {
         <span className="tour__when">{location.date}</span>
       </div>
       <h3 className="tour__city">{location.name}</h3>
-      <a href="#reserva" className="tour__tickets">RESERVA TU PLAZA</a>
+      <a href="#reserva" className="tour__tickets">{bookLabel}</a>
     </div>
   );
 }
 
 export default function Cities() {
-  const { cities } = content;
+  const { t } = useTranslation();
+  const { cities } = t;
   const [titleRef, titleVisible] = useScrollReveal();
 
   return (
@@ -47,7 +48,7 @@ export default function Cities() {
 
         <div className="tour__list">
           {cities.locations.map((loc, i) => (
-            <TourDate key={loc.name} location={loc} index={i} />
+            <TourDate key={loc.name} location={loc} index={i} bookLabel={cities.bookTicket} />
           ))}
 
           {/* Finale — Madrid */}

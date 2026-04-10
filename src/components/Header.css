@@ -69,6 +69,26 @@
   opacity: 1;
 }
 
+/* Language toggle */
+.header__lang {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--gray-300);
+  background: transparent;
+  border: 1px solid var(--gray-600);
+  border-radius: 4px;
+  padding: 0.35rem 0.7rem;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.header__lang:hover {
+  color: var(--white);
+  border-color: var(--white);
+}
+
 /* Burger */
 .header__burger {
   display: none;
@@ -131,5 +151,10 @@
 
   .header__cta {
     font-size: 1.1rem;
+  }
+
+  .header__lang {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
   }
 }

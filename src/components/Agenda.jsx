@@ -1,24 +1,16 @@
-import content from '../data/content.json';
+import { useTranslation } from '../context/LanguageContext';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { useParallax } from '../hooks/useParallax';
 import './Agenda.css';
 
-const TICKER = [
-  'Retail', 'Banca', 'Sector público', 'IA aplicada',
-  'Tooling WSO2', 'Agentic workflows', 'Automatización', 'Integración real',
-];
-
-const CARDS = [
-  { id: '02', title: 'Debate técnico de alto voltaje', text: 'Un panel abierto para discutir el futuro de la arquitectura: microservicios o APIs.', chip: 'Panel en vivo' },
-  { id: '03', title: 'Innovación y seguridad', text: 'Seguridad e integración para escenarios críticos en retail, banca y sector público.', chip: 'Arquitectura crítica' },
-  { id: '04', title: 'Tooling e inteligencia artificial', text: 'Cómo WSO2 y la IA están cambiando los flujos reales de desarrollo e integración.', chip: 'IA aplicada' },
-];
-
 export default function Agenda() {
-  const { agenda } = content;
+  const { t } = useTranslation();
+  const { agenda } = t;
   const [hRef, hVis] = useScrollReveal();
   const [pRef, pStyle] = useParallax(0.12, 'up');
   const [layoutRef, layoutVis] = useScrollReveal(0.12);
+
+  const heroLines = agenda.heroTitle.split('\n');
 
   return (
     <section id="technotardeo" className="ag">
@@ -31,7 +23,7 @@ export default function Agenda() {
         >
           <div className="ag__header-left">
             <h2 className="ag__title">{agenda.sectionTitle}</h2>
-            <p className="ag__subtitle">Casos reales y locales como eje del evento técnico WSO2.</p>
+            <p className="ag__subtitle">{agenda.heroSubtitle}</p>
           </div>
           <span className="ag__badge">{agenda.sectionSubtitle}</span>
         </header>
@@ -44,40 +36,33 @@ export default function Agenda() {
           {/* LEFT — hero card */}
           <article className="ag__hero">
             <div className="ag__hero-content">
-              <p className="ag__eyebrow">Bloque principal</p>
-              <p className="ag__idx">01 · Casos reales</p>
+              <p className="ag__eyebrow">{agenda.heroEyebrow}</p>
+              <p className="ag__idx">{agenda.heroIdx}</p>
               <h3 className="ag__hero-title">
-                Casos de<br />uso reales<br />y locales
+                {heroLines.map((line, i) => (
+                  <span key={i}>{line}{i < heroLines.length - 1 && <br />}</span>
+                ))}
               </h3>
-              <p className="ag__hero-body">
-                Clientes reales de tu misma zona explicarán cómo usan WSO2,
-                qué decisiones tomaron y qué impacto tuvo en sus arquitecturas.
-              </p>
+              <p className="ag__hero-body">{agenda.heroBody}</p>
             </div>
 
             <div className="ag__ticker">
               <div className="ag__ticker-rail">
                 <div className="ag__ticker-track">
-                  {[...TICKER, ...TICKER].map((t, i) => (
-                    <span key={`${t}-${i}`} className="ag__ticker-pill">{t}</span>
+                  {[...agenda.ticker, ...agenda.ticker].map((item, i) => (
+                    <span key={`${item}-${i}`} className="ag__ticker-pill">{item}</span>
                   ))}
                 </div>
               </div>
             </div>
 
             <div className="ag__stats">
-              <div className="ag__stat">
-                <p className="ag__stat-num">CLIENTES CERCANOS</p>
-                <p className="ag__stat-txt">Voces locales, no discurso genérico</p>
-              </div>
-              <div className="ag__stat">
-                <p className="ag__stat-num">CASOS CONCRETOS</p>
-                <p className="ag__stat-txt">Decisiones, retos y resultados reales</p>
-              </div>
-              <div className="ag__stat">
-                <p className="ag__stat-num">APRENDIZAJE ÚTIL</p>
-                <p className="ag__stat-txt">Contenido que puedes llevar al trabajo</p>
-              </div>
+              {agenda.stats.map((s, i) => (
+                <div key={i} className="ag__stat">
+                  <p className="ag__stat-num">{s.num}</p>
+                  <p className="ag__stat-txt">{s.txt}</p>
+                </div>
+              ))}
             </div>
           </article>
 
@@ -86,7 +71,7 @@ export default function Agenda() {
             <span className="ag__ghost ag__ghost--tl" aria-hidden="true">ARCHITECTURE · APIS · AI</span>
             <span className="ag__ghost ag__ghost--br" aria-hidden="true">LIVE / COMMUNITY / TOOLING</span>
 
-            {CARDS.map((c) => (
+            {agenda.cards.map((c) => (
               <article key={c.id} className={`ag__card ag__card--${c.id}`}>
                 <span className="ag__card-id">{c.id}</span>
                 <h4 className="ag__card-title">{c.title}</h4>

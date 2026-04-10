@@ -1,8 +1,9 @@
-import content from '../data/content.json';
+import { useTranslation } from '../context/LanguageContext';
 import './Footer.css';
 
 export default function Footer() {
-  const { footer } = content;
+  const { t } = useTranslation();
+  const { footer } = t;
 
   return (
     <footer id="reserva" className="footer">
@@ -22,11 +23,11 @@ export default function Footer() {
             <div className="footer__subscribe">
               <input
                 type="email"
-                placeholder="tu@email.com"
+                placeholder={footer.emailPlaceholder}
                 className="footer__input"
-                aria-label="Email para newsletter"
+                aria-label={footer.emailLabel}
               />
-              <button className="footer__btn">SUSCRIBIRSE</button>
+              <button className="footer__btn">{footer.subscribe}</button>
             </div>
             <div className="footer__links">
               {footer.links.map((link) => (

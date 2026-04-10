@@ -1,10 +1,11 @@
-import content from '../data/content.json';
+import { useTranslation } from '../context/LanguageContext';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { useParallax } from '../hooks/useParallax';
 import './Kit.css';
 
 export default function Kit() {
-  const { kit } = content;
+  const { t } = useTranslation();
+  const { kit } = t;
   const [titleRef, titleVisible] = useScrollReveal();
   const [pRef, pStyle] = useParallax(0.11, 'up');
   const [photoParallaxRef, photoParallaxStyle] = useParallax(0.13, 'down');
@@ -28,7 +29,7 @@ export default function Kit() {
           className={`kit__header reveal ${titleVisible ? 'visible' : ''}`}
           style={pStyle}
         >
-          <span className="kit__kicker">TANGIBLE EXPERIENCE</span>
+          <span className="kit__kicker">{kit.kicker}</span>
           <h2 className="kit__title">{kit.sectionTitle}</h2>
           <p className="kit__subtitle">{kit.description}</p>
         </div>
@@ -43,7 +44,7 @@ export default function Kit() {
               <img
                 className="kit__photo"
                 src={`${import.meta.env.BASE_URL}tour/pizza.png`}
-                alt="Caja de pizza WSO2 abierta con el Golden Ticket y camiseta dentro"
+                alt={kit.photoAlt}
                 loading="lazy"
                 draggable="false"
               />
@@ -65,7 +66,7 @@ export default function Kit() {
                   <div className="kit__item-body">
                     <h3 className="kit__item-title">
                       {item.title}
-                      {item.comingSoon && <span className="kit__soon-tag">COMING SOON</span>}
+                      {item.comingSoon && <span className="kit__soon-tag">{kit.comingSoonTag}</span>}
                     </h3>
                     <p className="kit__item-desc">{item.description}</p>
                   </div>
@@ -74,7 +75,7 @@ export default function Kit() {
             })}
 
             <p className="kit__note">
-              Para recibir el kit, los asistentes deben registrarse en la comunidad WSO2 Spain.
+              {kit.note}
             </p>
           </div>
         </div>

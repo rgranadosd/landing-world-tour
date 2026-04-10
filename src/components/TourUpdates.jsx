@@ -1,9 +1,9 @@
-import content from '../data/content.json';
+import { useTranslation } from '../context/LanguageContext';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { useParallax } from '../hooks/useParallax';
 import './TourUpdates.css';
 
-function UpdateCard({ item, index }) {
+function UpdateCard({ item, index, moreInfoLabel }) {
   const [ref, isVisible] = useScrollReveal(0.1);
   const mediaStyle = {
     backgroundImage: `linear-gradient(180deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.74)), url(${import.meta.env.BASE_URL}${item.image.replace(/^\//, '')})`,
@@ -26,13 +26,14 @@ function UpdateCard({ item, index }) {
       <h3 className="tour-updates__headline">{item.title}</h3>
       <p className="tour-updates__city">{item.city}</p>
       <p className="tour-updates__description">{item.description}</p>
-      <a href="#reserva" className="tour-updates__link">MÁS INFO</a>
+      <a href="#reserva" className="tour-updates__link">{moreInfoLabel}</a>
     </article>
   );
 }
 
 export default function TourUpdates() {
-  const { tourUpdates } = content;
+  const { t } = useTranslation();
+  const { tourUpdates } = t;
   const [ref, isVisible] = useScrollReveal();
   const [headerPRef, headerPStyle] = useParallax(0.115, 'up');
   const [galleryPRef, galleryPStyle] = useParallax(0.11, 'up');
@@ -51,14 +52,14 @@ export default function TourUpdates() {
 
         <div className="tour-updates__grid">
           {tourUpdates.items.map((item, index) => (
-            <UpdateCard key={`${item.city}-${item.date}`} item={item} index={index} />
+            <UpdateCard key={`${item.city}-${item.date}`} item={item} index={index} moreInfoLabel={tourUpdates.moreInfo} />
           ))}
         </div>
 
         <div className="tour-updates__photos">
           <div className="tour-updates__photos-header">
-            <p className="tour-updates__photos-kicker">PHOTOS</p>
-            <h3 className="tour-updates__photos-title">IMÁGENES DEL TOUR</h3>
+            <p className="tour-updates__photos-kicker">{tourUpdates.photosKicker}</p>
+            <h3 className="tour-updates__photos-title">{tourUpdates.photosTitle}</h3>
           </div>
 
           <div ref={galleryPRef} className="tour-updates__photos-grid" style={galleryPStyle}>

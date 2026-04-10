@@ -174,15 +174,16 @@
     "sectionTitle": "THE AI BOOK",
     "sectionSubtitle": "by Pablo Sagarna and Rafael Granados",
     "label": "EDITORIAL RELEASE",
-    "description": "The final section of the tour now introduces The AI Book, a practical guide to APIs, modern integration, and applied artificial intelligence. AI Kombat remains part of the community challenge, now backed by stronger technical foundations for participants.",
-    "features": ["APIS + APPLIED AI", "REAL CASES", "PRACTICAL GUIDE"],
-    "cta": "I WANT THE BOOK",
+    "description": "The AI Book is an essential guide to understanding how to take artificial intelligence from concept to reality. Through the design of an agentic architecture and the approach of an Agent Manager as the central piece, the book practically explores how to connect and orchestrate LLMs, agents, MCPs, RAGs, APIs and other key components of today's ecosystem. It doesn't just explain technologies separately: it shows how to integrate them to build intelligent, scalable solutions ready for real business environments. A work designed for architects, developers and technology leaders who want to understand the present of AI… and design their next step.",
+    "features": ["LLMs · AGENTS · MCPs", "RAGs · APIs", "AGENTIC ARCHITECTURE"],
+    "exclusive": "This book is not available in stores. It's an exclusive edition for attendees of WSO2 Community Road Show events.",
+    "cta": "GET IT ON THE TOUR",
     "book": {
       "series": "WSO2 PRESS",
       "title": "The AI Book",
-      "subtitle": "APIs, integration and intelligent architecture for development teams",
+      "subtitle": "Agentic architecture, LLMs, MCPs, RAGs and APIs for intelligent solutions",
       "authors": "Pablo Sagarna · Rafael Granados",
-      "badge": "Special edition for the technical community"
+      "badge": "Exclusive edition · Not available in stores"
     }
   },
   "footer": {

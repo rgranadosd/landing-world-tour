@@ -171,18 +171,19 @@
     }
   },
   "aiKombat": {
-    "sectionTitle": "EL LIBRO DE LA AI",
+    "sectionTitle": "EL LIBRO DE LA IA",
     "sectionSubtitle": "por Pablo Sagarna y Rafael Granados",
     "label": "NOVEDAD EDITORIAL",
-    "description": "La última sección del tour presenta El libro de la AI, una guía práctica sobre APIs, integración moderna e inteligencia artificial aplicada. AI Kombat sigue vivo como reto de la comunidad, pero ahora con una base técnica más sólida para preparar a los participantes.",
-    "features": ["APIS E IA APLICADA", "CASOS REALES", "GUÍA PRÁCTICA"],
-    "cta": "QUIERO EL LIBRO",
+    "description": "El libro de la IA es una guía imprescindible para entender cómo llevar la inteligencia artificial del concepto a la realidad. A través del diseño de una arquitectura agéntica y del enfoque de un Agent Manager como pieza central, el libro explora de forma práctica cómo conectar y orquestar LLMs, agentes, MCPs, RAGs, APIs y otros componentes clave del ecosistema actual. No se limita a explicar tecnologías por separado: muestra cómo integrarlas para construir soluciones inteligentes, escalables y preparadas para entornos reales de negocio. Una obra pensada para arquitectos, desarrolladores y líderes tecnológicos que quieren comprender el presente de la IA… y diseñar su siguiente paso.",
+    "features": ["LLMs · AGENTES · MCPs", "RAGs · APIs", "ARQUITECTURA AGÉNTICA"],
+    "exclusive": "Este libro no está disponible en tiendas. Es una edición exclusiva para asistentes a los eventos del WSO2 Community Road Show.",
+    "cta": "CONSÍGUELO EN EL TOUR",
     "book": {
       "series": "WSO2 PRESS",
-      "title": "El libro de la AI",
-      "subtitle": "APIs, integración y arquitectura inteligente para equipos de desarrollo",
+      "title": "El libro de la IA",
+      "subtitle": "Arquitectura agéntica, LLMs, MCPs, RAGs y APIs para soluciones inteligentes",
       "authors": "Pablo Sagarna · Rafael Granados",
-      "badge": "Edición especial para la comunidad técnica"
+      "badge": "Edición exclusiva · No disponible en tiendas"
     }
   },
   "footer": {

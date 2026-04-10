@@ -6,45 +6,68 @@ import './AiKombat.css';
 export default function AiKombat() {
   const { t } = useTranslation();
   const { aiKombat } = t;
-  const [ref, isVisible] = useScrollReveal();
-  const [pRef, pStyle] = useParallax(0.07, 'up');
+  const [headerRef, headerVis] = useScrollReveal();
+  const [bookRef, bookVis] = useScrollReveal(0.15);
+  const [pRef, pStyle] = useParallax(0.06, 'up');
 
   return (
     <section id="aikombat" className="kombat">
+      {/* Decorative grid lines */}
+      <div className="kombat__gridlines" aria-hidden="true">
+        <span /><span /><span /><span />
+      </div>
+
       <div className="container">
+        {/* ── HEADER ── */}
         <div
-          ref={(node) => { ref.current = node; pRef.current = node; }}
-          className={`kombat__content reveal ${isVisible ? 'visible' : ''}`}
+          ref={(n) => { headerRef.current = n; pRef.current = n; }}
+          className={`kombat__header reveal ${headerVis ? 'visible' : ''}`}
           style={pStyle}
         >
-          <span className="kombat__label">{aiKombat.label}</span>
-          <div className="kombat__layout">
-            <div className="kombat__main">
-              <h2 className="kombat__title">{aiKombat.sectionTitle}</h2>
-              <p className="kombat__subtitle">{aiKombat.sectionSubtitle}</p>
-              <p className="kombat__desc">{aiKombat.description}</p>
+          <span className="kombat__kicker">{aiKombat.label}</span>
+          <h2 className="kombat__title">{aiKombat.sectionTitle}</h2>
+          <p className="kombat__subtitle">{aiKombat.sectionSubtitle}</p>
+        </div>
 
-              <div className="kombat__features">
-                {aiKombat.features.map((f) => (
-                  <span key={f} className="kombat__feature">{f}</span>
-                ))}
+        {/* ── BOOK LAYOUT ── */}
+        <div
+          ref={bookRef}
+          className={`kombat__stage ${bookVis ? 'kombat__stage--vis' : ''}`}
+        >
+          {/* Cover */}
+          <div className="kombat__cover-wrap">
+            <div className="kombat__cover-glow" aria-hidden="true" />
+            <div className="book-cover">
+              <div className="book-cover__spine" aria-hidden="true" />
+              <div className="book-cover__front">
+                <div className="book-cover__top">{aiKombat.book.series}</div>
+                <div className="book-cover__mid">
+                  <h3 className="book-cover__title">{aiKombat.book.title}</h3>
+                  <p className="book-cover__sub">{aiKombat.book.subtitle}</p>
+                </div>
+                <div className="book-cover__bottom">
+                  <p className="book-cover__authors">{aiKombat.book.authors}</p>
+                </div>
               </div>
+            </div>
+          </div>
 
-              <a href="#reserva" className="kombat__cta">{aiKombat.cta}</a>
+          {/* Content */}
+          <div className="kombat__body">
+            <p className="kombat__desc">{aiKombat.description}</p>
+
+            <div className="kombat__pills">
+              {aiKombat.features.map((f) => (
+                <span key={f} className="kombat__pill">{f}</span>
+              ))}
             </div>
 
-            <aside className="book-card" aria-label={aiKombat.book.title}>
-              <div className="book-cover" role="img" aria-label={`${aiKombat.book.title} - ${aiKombat.book.authors}`}>
-                <div className="book-cover__top">{aiKombat.book.series}</div>
-                <div className="book-cover__title-box">
-                  <h3 className="book-cover__title">{aiKombat.book.title}</h3>
-                  <p className="book-cover__subtitle">{aiKombat.book.subtitle}</p>
-                </div>
-                <p className="book-cover__authors">{aiKombat.book.authors}</p>
-              </div>
+            <div className="kombat__exclusive">
+              <span className="kombat__exclusive-icon" aria-hidden="true">★</span>
+              <p className="kombat__exclusive-text">{aiKombat.exclusive}</p>
+            </div>
 
-              <p className="book-card__meta">{aiKombat.book.badge}</p>
-            </aside>
+            <a href="#reserva" className="kombat__cta">{aiKombat.cta}</a>
           </div>
         </div>
       </div>

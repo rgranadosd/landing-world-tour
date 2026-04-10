@@ -6,7 +6,8 @@ import './TourUpdates.css';
 function UpdateCard({ item, index }) {
   const [ref, isVisible] = useScrollReveal(0.1);
   const mediaStyle = {
-    backgroundImage: `linear-gradient(180deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.74)), url(${item.image})`,
+    backgroundImage: `linear-gradient(180deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.74)), url(${import.meta.env.BASE_URL}${item.image.replace(/^\//, '')})`,
+
   };
 
   return (
@@ -63,7 +64,8 @@ export default function TourUpdates() {
           <div ref={galleryPRef} className="tour-updates__photos-grid" style={galleryPStyle}>
             {tourUpdates.gallery.map((item) => {
               const photoStyle = {
-                backgroundImage: `linear-gradient(180deg, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.82)), url(${item.image})`,
+                backgroundImage: `linear-gradient(180deg, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.82)), url(${import.meta.env.BASE_URL}${item.image.replace(/^\//, '')})`,
+
                 backgroundPosition: item.position || 'center center',
                 backgroundSize: item.size || 'cover',
                 backgroundRepeat: 'no-repeat',

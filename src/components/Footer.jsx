@@ -9,7 +9,7 @@ export default function Footer() {
       <div className="container">
         <div className="footer__top">
           <div className="footer__brand">
-            <img src="/wso2-logo.svg" alt="WSO2" className="footer__logo" />
+            <img src={`${import.meta.env.BASE_URL}wso2-logo.svg`} alt="WSO2" className="footer__logo" />
             <p className="footer__tagline">{footer.tagline}</p>
           </div>
 

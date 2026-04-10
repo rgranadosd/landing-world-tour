@@ -16,7 +16,7 @@ export default function Header() {
     <header className={`header ${scrolled ? 'header--scrolled' : ''}`}>
       <div className="header__inner">
         <a href="#inicio" className="header__logo">
-          <img src={content.nav.logo} alt="WSO2" />
+          <img src={`${import.meta.env.BASE_URL}wso2-logo.svg`} alt="WSO2" />
         </a>
 
         <button

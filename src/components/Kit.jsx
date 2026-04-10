@@ -42,7 +42,7 @@ export default function Kit() {
               <div className="kit__corner kit__corner--br" aria-hidden="true" />
               <img
                 className="kit__photo"
-                src="/tour/pizza.png"
+                src={`${import.meta.env.BASE_URL}tour/pizza.png`}
                 alt="Caja de pizza WSO2 abierta con el Golden Ticket y camiseta dentro"
                 loading="lazy"
                 draggable="false"

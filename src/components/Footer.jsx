@@ -18,24 +18,6 @@ export default function Footer() {
             <a href={footer.community.href} className="footer__community" target="_blank" rel="noopener noreferrer">
               {footer.community.label}
             </a>
-
-            <p className="footer__newsletter-text">{footer.newsletter}</p>
-            <div className="footer__subscribe">
-              <input
-                type="email"
-                placeholder={footer.emailPlaceholder}
-                className="footer__input"
-                aria-label={footer.emailLabel}
-              />
-              <button className="footer__btn">{footer.subscribe}</button>
-            </div>
-            <div className="footer__links">
-              {footer.links.map((link) => (
-                <a key={link.label} href={link.href} className="footer__link">
-                  {link.label}
-                </a>
-              ))}
-            </div>
           </div>
         </div>
 

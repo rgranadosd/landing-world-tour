@@ -172,7 +172,7 @@
   },
   "aiKombat": {
     "sectionTitle": "EL LIBRO DE LA IA",
-    "sectionSubtitle": "por Pablo Sagarna y Rafael Granados",
+    "sectionSubtitle": "por Rafa Granados y Pablo Sagarna",
     "label": "NOVEDAD EDITORIAL",
     "description": "El libro de la IA es una guía imprescindible para entender cómo llevar la inteligencia artificial del concepto a la realidad. A través del diseño de una arquitectura agéntica y del enfoque de un Agent Manager como pieza central, el libro explora de forma práctica cómo conectar y orquestar LLMs, agentes, MCPs, RAGs, APIs y otros componentes clave del ecosistema actual. No se limita a explicar tecnologías por separado: muestra cómo integrarlas para construir soluciones inteligentes, escalables y preparadas para entornos reales de negocio. Una obra pensada para arquitectos, desarrolladores y líderes tecnológicos que quieren comprender el presente de la IA… y diseñar su siguiente paso.",
     "features": ["LLMs · AGENTES · MCPs", "RAGs · APIs", "ARQUITECTURA AGÉNTICA"],
@@ -182,7 +182,7 @@
       "series": "WSO2 PRESS",
       "title": "El libro de la IA",
       "subtitle": "Arquitectura agéntica, LLMs, MCPs, RAGs y APIs para soluciones inteligentes",
-      "authors": "Pablo Sagarna · Rafael Granados",
+      "authors": "Rafa Granados · Pablo Sagarna",
       "badge": "Edición exclusiva · No disponible en tiendas"
     }
   },

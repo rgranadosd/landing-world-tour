@@ -172,7 +172,7 @@
   },
   "aiKombat": {
     "sectionTitle": "THE AI BOOK",
-    "sectionSubtitle": "by Pablo Sagarna and Rafael Granados",
+    "sectionSubtitle": "by Rafa Granados and Pablo Sagarna",
     "label": "EDITORIAL RELEASE",
     "description": "The AI Book is an essential guide to understanding how to take artificial intelligence from concept to reality. Through the design of an agentic architecture and the approach of an Agent Manager as the central piece, the book practically explores how to connect and orchestrate LLMs, agents, MCPs, RAGs, APIs and other key components of today's ecosystem. It doesn't just explain technologies separately: it shows how to integrate them to build intelligent, scalable solutions ready for real business environments. A work designed for architects, developers and technology leaders who want to understand the present of AI… and design their next step.",
     "features": ["LLMs · AGENTS · MCPs", "RAGs · APIs", "AGENTIC ARCHITECTURE"],
@@ -182,7 +182,7 @@
       "series": "WSO2 PRESS",
       "title": "The AI Book",
       "subtitle": "Agentic architecture, LLMs, MCPs, RAGs and APIs for intelligent solutions",
-      "authors": "Pablo Sagarna · Rafael Granados",
+      "authors": "Rafa Granados · Pablo Sagarna",
       "badge": "Exclusive edition · Not available in stores"
     }
   },

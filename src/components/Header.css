@@ -71,22 +71,17 @@
 
 /* Language toggle */
 .header__lang {
-  font-family: var(--font-display);
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  color: var(--gray-300);
+  font-size: 1.35rem;
+  line-height: 1;
   background: transparent;
-  border: 1px solid var(--gray-600);
-  border-radius: 4px;
-  padding: 0.35rem 0.7rem;
+  border: none;
   cursor: pointer;
-  transition: color 0.2s, border-color 0.2s;
+  padding: 0.2rem;
+  transition: transform 0.2s;
 }
 
 .header__lang:hover {
-  color: var(--white);
-  border-color: var(--white);
+  transform: scale(1.2);
 }
 
 /* Burger */
@@ -154,7 +149,6 @@
   }
 
   .header__lang {
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
+    font-size: 1.6rem;
   }
 }

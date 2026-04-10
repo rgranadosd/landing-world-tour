@@ -40,7 +40,7 @@ export default function Header() {
             </a>
           ))}
           <button className="header__lang" onClick={toggleLang} aria-label="Change language">
-            {lang === 'es' ? 'EN' : 'ES'}
+            {lang === 'es' ? '🇬🇧' : '🇪🇸'}
           </button>
         </nav>
       </div>

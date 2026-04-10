@@ -214,6 +214,17 @@
   z-index: -1;
 }
 
+/* Subtle dark tint to soften the white contrast */
+.libro__book-frame::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  border-radius: 16px;
+  background: rgba(0, 0, 0, 0.12);
+  pointer-events: none;
+}
+
 .libro__book {
   display: block;
   width: 100%;
